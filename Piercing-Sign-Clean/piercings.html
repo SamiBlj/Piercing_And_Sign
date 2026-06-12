@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piercing &amp; Sign | Piercings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">Piercing &amp; Sign</span>
+    <span class="nav-logo-sub">Bijoux · Tatouages · Piercings</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-list" id="navList">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="jewelry.html">Bijoux</a></li>
+    <li><a href="tattoos.html">Tatouages</a></li>
+    <li><a href="piercings.html">Piercings</a></li>
+    <li><a href="cart.html" class="nav-cart">Panier</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="login.html">Admin</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=1400&q=80')"></div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <span class="eyebrow">Titane Grade 23</span>
+    <h1 class="page-hero__title">Piercings</h1>
+    <p class="page-hero__sub">Professionnel, sécurisé, hypoallergénique</p>
+  </div>
+</div>
+
+<!-- INFO BLOCKS -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="info-blocks">
+
+      <div class="info-block reveal">
+        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0022.jpg" alt="Piercing titane">
+        <div>
+          <span class="eyebrow info-block__label">Notre standard</span>
+          <h2 class="info-block__title">Titane Implant Grade</h2>
+          <p class="info-block__text">Nous utilisons exclusivement du titane ASTM F136 (Grade 23) pour tous nos piercings — le même standard que les implants médicaux. Aucune allergie, aucun compromis sur votre santé.</p>
+          <div class="ti-grid" style="margin-top:28px;">
+            <div class="ti-card"><h4>Hypoallergénique</h4><p>Aucune réaction, même sur les peaux les plus sensibles.</p></div>
+            <div class="ti-card"><h4>Antimicrobien</h4><p>Réduit naturellement les risques d'infection.</p></div>
+            <div class="ti-card"><h4>Ultra léger</h4><p>Confort optimal, même pour les piercings d'oreille multiples.</p></div>
+            <div class="ti-card"><h4>Durable</h4><p>Résistant à la corrosion, garde sa brillance des années.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-block info-block--rev reveal">
+        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0060.jpg" alt="Types de piercings">
+        <div>
+          <span class="eyebrow info-block__label">Nos spécialités</span>
+          <h2 class="info-block__title">Tous Types de Piercings</h2>
+          <p class="info-block__text">Du lobe à l'hélix, du septum au nombril — nos perceurs qualifiés maîtrisent toutes les techniques. Chaque séance se déroule dans un espace stérilisé avec du matériel à usage unique.</p>
+          <br>
+          <p class="info-block__text">Oreilles (lobe, hélix, tragus, conch, daith) · Nez · Septum · Labret · Langue · Nombril · Sourcil · Industriel</p>
+          <br>
+          <a href="contact.html" class="btn btn--red" style="margin-top:8px;">Prendre rendez-vous</a>
+        </div>
+      </div>
+
+      <div class="info-block reveal">
+        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0150.jpg" alt="Soins piercing">
+        <div>
+          <span class="eyebrow info-block__label">Après votre piercing</span>
+          <h2 class="info-block__title">Conseils de Cicatrisation</h2>
+          <p class="info-block__text">Un bon suivi est essentiel. Nos experts vous remettent une fiche de soins détaillée et restent disponibles pour toute question post-séance.</p>
+          <br>
+          <p class="info-block__text">Nettoyez 2× par jour avec du sérum physiologique · Évitez de toucher inutilement · Pas de piscine/mer pendant 4 semaines · Revenez nous voir si vous avez un doute.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PIERCING JEWELRY CATALOG -->
+<section class="section section--mid">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Collection Titane G23</span>
+      <h2>Notre Catalogue</h2>
+      <div class="rule"></div>
+      <p>Clickers, labrets, industriels, nombril — tous en titane ASTM F-136. Photos réelles de notre stock.</p>
+    </div>
+
+    <!-- Category filter tabs -->
+    <div class="cat-tabs reveal">
+      <button class="cat-tab active" data-filter="all">Tout voir</button>
+      <button class="cat-tab" data-filter="clicker">Clickers &amp; Anneaux</button>
+      <button class="cat-tab" data-filter="labret">Labrets &amp; Flat Backs</button>
+      <button class="cat-tab" data-filter="top">Tops Décoratifs</button>
+      <button class="cat-tab" data-filter="industriel">Industriels</button>
+      <button class="cat-tab" data-filter="nombril">Nombril</button>
+    </div>
+
+    <div class="products-grid" id="piercingProductGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand-name">Piercing &amp; Sign</div>
+      <span class="footer__brand-tag">Bijoux · Tatouages · Piercings</span>
+      <p class="footer__desc">Boutique spécialisée à Compiègne. Qualité, sécurité et style depuis toujours.</p>
+    </div>
+    <div>
+      <div class="footer__col-title">Navigation</div>
+      <ul class="footer__links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="jewelry.html">Bijoux</a></li>
+        <li><a href="tattoos.html">Tatouages</a></li>
+        <li><a href="piercings.html">Piercings</a></li>
+        <li><a href="cart.html">Panier</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Services</div>
+      <ul class="footer__links">
+        <li><a href="jewelry.html">Collection Bijoux</a></li>
+        <li><a href="piercings.html">Piercings Titane</a></li>
+        <li><a href="tattoos.html">Tatouages Flash</a></li>
+        <li><a href="tattoos.html">Consultation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Contact</div>
+      <div class="footer__contact-row">
+        <span class="footer__contact-key">📍</span>
+        <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
+      </div>
+      <div class="footer__contact-row">
+        <span class="footer__contact-key">📞</span>
+        <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
+      </div>
+      <div class="footer__contact-row">
+        <span class="footer__contact-key">⏰</span>
+        <span class="footer__contact-val">Ouvert à partir de 10h</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="footer__copy">&copy; 2026 Piercing &amp; Sign · Tous droits réservés</span>
+    <div class="footer__socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="cart.html" class="cart-float" id="cartFloat">Panier <span id="cartCount"></span></a>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navList   = document.getElementById('navList');
+navToggle.addEventListener('click', () => {
+  navList.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', navList.classList.contains('open'));
+});
+document.querySelectorAll('.nav-list a').forEach(a =>
+  a.addEventListener('click', () => navList.classList.remove('open'))
+);
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCartFloat() {
+  const count = cart.length;
+  document.getElementById('cartCount').textContent = count > 0 ? `(${count})` : '';
+}
+
+function addToCart(name, price, image) {
+  cart.push({ name, price, image });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartFloat();
+  const btn = document.getElementById('cartFloat');
+  btn.classList.remove('pop'); btn.offsetHeight; btn.classList.add('pop');
+  showToast(`✓ ${name} ajouté au panier`);
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.classList.add('toast--out'); setTimeout(() => t.remove(), 350); }, 2800);
+}
+
+const products = [
+  /* CLICKERS & ANNEAUX */
+  { cat:'clicker', name:'Clicker Émeraudes Dorées',    desc:'Anneau clicker septum en titane G23 doré avec gemmes émeraude et cristaux pavés.',       price:38, image:'pictures/jewlery%20pictures/DSC_0022.jpg' },
+  { cat:'clicker', name:'Clicker Couronne Marquise',   desc:'Clicker ornementale titane doré avec marquises cristal en demi-couronne. Daith/hélix.',   price:42, image:'pictures/jewlery%20pictures/DSC_0060.jpg' },
+  { cat:'clicker', name:'Daith Arc-en-ciel',           desc:'Arc multicolore (améthyste, bleu ciel, péridot, topaze, grenat) en titane G23 doré.',     price:35, image:'pictures/jewlery%20pictures/DSC_0013.jpg' },
+  { cat:'clicker', name:'Croissant Daith Cristaux',    desc:'Anneau demi-lune titane doré serti de cristaux blancs sur toute la courbe.',              price:38, image:'pictures/jewlery%20pictures/DSC_0035.jpg' },
+  { cat:'clicker', name:'Clicker Arabesques',          desc:'Clicker segment avec design arabesque en titane. Disponible argent et doré.',              price:30, image:'pictures/jewlery%20pictures/DSC_0100.jpg' },
+  { cat:'clicker', name:'Anneau Horseshoe Or',         desc:'Anneau fer à cheval en titane G23 doré. Simple, solide et poli miroir.',                  price:20, image:'pictures/jewlery%20pictures/DSC_0250.jpg' },
+  /* LABRETS & FLAT BACKS */
+  { cat:'labret',  name:'Labret Feuilles Dorées',      desc:'Flat back titane G23 doré avec couronne de feuilles 3D. Conch, tragus ou lèvre.',          price:28, image:'pictures/jewlery%20pictures/DSC_0300.jpg' },
+  { cat:'labret',  name:'Labret Serpent Silver',       desc:'Flat back titane argenté avec charm serpent sculpté. Design reptilien unique.',             price:25, image:'pictures/jewlery%20pictures/DSC_0370.jpg' },
+  { cat:'labret',  name:'Labret Charm Cristal',        desc:'Labret titane doré avec top baguette cristal et charm pendant cube scintillant.',           price:32, image:'pictures/jewlery%20pictures/DSC_0447.jpg' },
+  { cat:'labret',  name:'Labret Diablotin',            desc:'Flat back titane noir avec boule sphère et petites cornes. Édition limitée.',               price:22, image:'pictures/jewlery%20pictures/DSC_0460.jpg' },
+  { cat:'labret',  name:'Labret Gem Rainbow',          desc:'Flat back titane avec top multi-gemmes arc-en-ciel. Tragus, hélix, lèvre.',                 price:26, image:'pictures/jewlery%20pictures/DSC_0428.jpg' },
+  { cat:'labret',  name:'Labret Fleur Cristal',        desc:'Flat back titane G23 avec fleur en cristaux pavés. Élégant, parfait pour le tragus.',       price:29, image:'pictures/jewlery%20pictures/DSC_0430.jpg' },
+  /* TOPS DÉCORATIFS */
+  { cat:'top',     name:'Top Cristal Bleu Arrow',      desc:'Top vissé titane argenté avec gemme bleue taillée en flèche. Compatible tous flat backs.',  price:18, image:'pictures/jewlery%20pictures/DSC_0503.jpg' },
+  { cat:'top',     name:'Top Améthyste Bezel',         desc:'Top en titane serti d\'une améthyste en bezel. Disque plat et raffiné.',                    price:18, image:'pictures/jewlery%20pictures/DSC_0520.jpg' },
+  { cat:'top',     name:'Top Opale Synthétique',       desc:'Top opale ronde en titane G23. Jeux de lumière irisés, compatible tous pas de vis.',         price:20, image:'pictures/jewlery%20pictures/DSC_0516.jpg' },
+  { cat:'top',     name:'Top Cristal Poire',           desc:'Top en titane avec pierre taillée poire. Compact, élégant pour hélix ou tragus.',            price:18, image:'pictures/jewlery%20pictures/DSC_0508.jpg' },
+  { cat:'top',     name:'Top Sphère Brillante',        desc:'Boule poli miroir en titane G23. Classique intemporel, compatible tous barbells.',           price:12, image:'pictures/jewlery%20pictures/DSC_0509.jpg' },
+  /* INDUSTRIELS */
+  { cat:'industriel', name:'Barbell Industriel Couronne', desc:'Barbell 38mm en titane doré G23 avec détail couronne central et billes vissées.',          price:35, image:'pictures/jewlery%20pictures/DSC_0150.jpg' },
+  { cat:'industriel', name:'Barbell Industriel Classic',  desc:'Barbell droit 38mm en titane G23 poli. Ultra-résistant, billes 5mm incluses.',             price:28, image:'pictures/jewlery%20pictures/DSC_0462.jpg' },
+  /* NOMBRIL */
+  { cat:'nombril', name:'Nombril Tournesol Cristaux',  desc:'Barbell courbe nombril titane doré G23. Design tournesol avec cristaux pavés.',              price:34, image:'pictures/jewlery%20pictures/DSC_0200.jpg' },
+  { cat:'nombril', name:'Nombril Baguette Charm',      desc:'Barbell nombril en titane doré, top baguette cristal avec charm pendant carré.',             price:30, image:'pictures/jewlery%20pictures/DSC_0413.jpg' },
+  { cat:'nombril', name:'Nombril Solitaire Or',        desc:'Barbell nombril classique en titane doré G23 avec solitaire cristal blanc.',                 price:26, image:'pictures/jewlery%20pictures/DSC_0364.jpg' },
+];
+
+const grid = document.getElementById('piercingProductGrid');
+
+function renderProducts(filter) {
+  grid.innerHTML = '';
+  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
+  filtered.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'p-card';
+    card.innerHTML = `
+      <div class="p-card__img-wrap"><img class="p-card__img" src="${p.image}" alt="${p.name}" loading="lazy"></div>
+      <div class="p-card__body">
+        <div class="p-card__name">${p.name}</div>
+        <div class="p-card__desc">${p.desc}</div>
+        <div class="p-card__price">€${p.price}</div>
+        <button class="p-card__btn" onclick="addToCart('${p.name.replace(/'/g,"\\'")}',${p.price},'${p.image}')">Ajouter au panier</button>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('.cat-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderProducts(tab.dataset.filter);
+  });
+});
+
+renderProducts('all');
+updateCartFloat();
+</script>
+<script src="effects.js"></script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piercing &amp; Sign | Tatouages</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">Piercing &amp; Sign</span>
+    <span class="nav-logo-sub">Bijoux · Tatouages · Piercings</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-list" id="navList">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="jewelry.html">Bijoux</a></li>
+    <li><a href="tattoos.html">Tatouages</a></li>
+    <li><a href="piercings.html">Piercings</a></li>
+    <li><a href="cart.html" class="nav-cart">Panier</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="login.html">Admin</a></li>
+  </ul>
+</nav>
+
+<<<<<<< HEAD
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero__bg" style="background-image:url('https://i.pinimg.com/736x/a3/a6/23/a3a623e43999b2a1c9d60829fc7d2eb7.jpg')"></div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <span class="eyebrow">Art &amp; Expression</span>
+    <h1 class="page-hero__title">Tatouages</h1>
+    <p class="page-hero__sub">Des designs uniques réalisés par des artistes passionnés</p>
+  </div>
+</div>
+
+<!-- CTA BOOKING -->
+<div class="cta-band">
+  <div class="cta-band__content reveal">
+    <span class="eyebrow">Rendez-vous</span>
+    <h2>Réservez votre séance</h2>
+    <p>Un acompte de €50 est requis pour valider votre rendez-vous. Paiement sécurisé en ligne.</p>
+    <button class="btn btn--red btn--lg" onclick="bookAppointment()">Réserver maintenant — €50</button>
+  </div>
+</div>
+
+<!-- FLASHERS GALLERY -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Flash</span>
+      <h2>Galerie de styles</h2>
+      <div class="rule"></div>
+      <p>Cliquez sur un style pour en savoir plus sur votre prochain tatouage.</p>
+=======
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1 id="tattoos-page-title">Tatouages Personnalisés</h1>
+            <p id="tattoos-page-description">Explorez une galerie de designs de tatouages uniques. Cliquez sur une image pour découvrir plus de détails.</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <h2 id="tattoos-booking-title">Réservez Votre Rendez-vous</h2>
+        <p id="tattoos-booking-description">Un acompte est requis pour valider votre réservation. Ajoutez simplement une "réservation" à votre panier et procédez au paiement.</p>
+        <button id="tattoos-booking-button" class="btn" onclick="bookAppointment()">Réserver Maintenant</button>
+        <p id="tattoos-payment-note" class="payment-note">💳 Paiement sécurisé – cartes & services acceptés</p>
+    </section>
+
+    <!-- Tattoo Consultation Quiz -->
+    <section class="quiz-section">
+        <h2 id="tattoos-quiz-title">Questionnaire de Consultation</h2>
+        <p id="tattoos-quiz-description">Remplissez ce questionnaire pour nous aider à comprendre vos besoins et vous proposer le tatouage parfait. Vos réponses seront envoyées directement à notre équipe.</p>
+        <form class="quiz-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label id="tattoos-label-name" for="name">Nom complet *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-email" for="email">Adresse email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-age" for="age">Quel âge avez-vous ? *</label>
+                <input type="number" id="age" name="age" min="0" placeholder="Âge" required>
+            </div>
+
+            <div class="form-group">
+                <label id="tattoos-label-phone" for="phone">Numéro de téléphone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-tattoo-type" for="tattoo-type">Quel type de tatouage souhaitez-vous ? *</label>
+                <select id="tattoo-type" name="tattoo-type" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="original">Design original personnalisé</option>
+                    <option value="existing">Adapter un design existant</option>
+                    <option value="inspiration">J'ai des idées mais besoin d'inspiration</option>
+                    <option value="no-idea">Je n'ai aucune idée</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-location" for="location">Où souhaitez-vous le tatouage ?</label>
+                <input type="text" id="location" name="location" placeholder="Bras, jambe, dos, etc.">
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-size" for="size">Quelle taille approximative ?</label>
+                <select id="size" name="size">
+                    <option value="">Sélectionnez une taille</option>
+                    <option value="small">Petit (5-10 cm)</option>
+                    <option value="medium">Moyen (10-20 cm)</option>
+                    <option value="large">Grand (20-30 cm)</option>
+                    <option value="xl">Très grand (30+ cm)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-style" for="style">Quels styles vous intéressent ? (plusieurs choix possibles)</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="style" value="minimaliste"> Minimaliste</label>
+                    <label><input type="checkbox" name="style" value="geometrique"> Géométrique</label>
+                    <label><input type="checkbox" name="style" value="floral"> Floral</label>
+                    <label><input type="checkbox" name="style" value="animalier"> Animalier</label>
+                    <label><input type="checkbox" name="style" value="tribal"> Tribal</label>
+                    <label><input type="checkbox" name="style" value="old-school"> Old School</label>
+                    <label><input type="checkbox" name="style" value="realiste"> Réaliste</label>
+                    <label><input type="checkbox" name="style" value="other"> Autre</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-colors" for="colors">Configuration couleur préférée ?</label>
+                <select id="colors" name="colors">
+                    <option value="">Sélectionnez une option</option>
+                    <option value="black-grey">Noir et gris</option>
+                    <option value="colored">Couleurs vives</option>
+                    <option value="watercolor">Aquarelle/dégradés</option>
+                    <option value="no-preference">Pas de préférence</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-first-time" for="first-time">Est-ce votre premier tatouage ? *</label>
+                <select id="first-time" name="first-time" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="yes">Oui, c'est mon premier</option>
+                    <option value="no">Non, j'en ai déjà</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-description" for="description">Description détaillée de votre idée</label>
+                <textarea id="description" name="description" rows="4" placeholder="Décrivez votre idée de tatouage, les éléments importants, l'histoire derrière, etc."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label id="tattoos-label-budget" for="budget">Budget approximatif</label>
+                <select id="budget" name="budget">
+                    <option value="">Sélectionnez une fourchette</option>
+                    <option value="100-200">100-200€</option>
+                    <option value="200-400">200-400€</option>
+                    <option value="400-600">400-600€</option>
+                    <option value="600+">600€ et plus</option>
+                </select>
+            </div>
+            
+            <button id="tattoos-quiz-submit" type="submit" class="btn submit-btn">Envoyer mes réponses</button>
+        </form>
+    </section>
+
+    <!-- Tattoo Flashers Gallery -->
+    <section class="tattoo-page">
+        <div class="tattoo-flashers" id="flashersContainer">
+            <!-- Flasher images will be populated here -->
+        </div>
+    </section>
+
+    <!-- Questions Modal -->
+    <div id="questionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Questions & Informations</h2>
+                <button class="close-btn" onclick="closeQuestionsModal()">&times;</button>
+            </div>
+            
+            <div class="questions-list">
+                <div class="question-item">
+                    <strong>🎂 Quel est votre âge?</strong>
+                    <p>Nous exigeons que nos clients soient âgés d'au moins 18 ans pour se faire tatouer. Nous demanderons une pièce d'identité lors de votre rendez-vous.</p>
+                </div>
+
+                <div class="question-item">
+                    <strong>💭 Quel type de tatouage souhaitez-vous?</strong>
+                    <p>Avez-vous une idée précise ou cherchez-vous de l'inspiration? Nos artistes peuvent créer un design original ou adapter un concept existant à votre style.</p>
+                </div>
+
+                <div class="question-item">
+                    <strong>📍 Où souhaitez-vous le tatouage?</strong>
+                    <p>La localisation sur le corps est importante pour la conception et la durée de la séance. Pensez à la visibilité, la taille et la sensibilité de la zone.</p>
+                </div>
+
+                <div class="question-item">
+                    <strong>📏 Quelle taille idéale?</strong>
+                    <p>Les tatouages peuvent varier de quelques centimètres à plusieurs décimètres. La taille affecte le détail, le temps de travail et le prix.</p>
+                </div>
+
+                <div class="question-item">
+                    <strong>🎨 Quels styles vous intéressent?</strong>
+                    <p>Minimaliste, géométrique, floral, animalier, tribal, old school, réaliste? Chaque style a ses propres caractéristiques et résultats uniques.</p>
+                </div>
+
+                <div class="question-item">
+                    <strong>🖌️ Avez-vous une configuration couleur en tête?</strong>
+                    <p>Noir et gris, couleurs, dégradés? Certains styles se prêtent mieux à certaines palettes de couleurs.</p>
+                </div>
+
+                <div class="question-item">
+                    <strong>⏱️ Première expérience de tatouage?</strong>
+                    <p>Si c'est votre premier tatouage, nous vous conseillerons sur la douleur, l'entretien et les soins post-tatouage essentiels.</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <p><strong>Prêt à vous faire tatouer?</strong></p>
+                <p>Contactez notre équipe pour discuter de votre design, fixer un rendez-vous et laisser nos artistes talentueux créer votre chef-d'œuvre.</p>
+            </div>
+        </div>
+>>>>>>> 43051405fa9613c507b6f96b87a516149838b2c8
+    </div>
+    <div class="flashers-grid" id="flashersContainer"></div>
+  </div>
+</section>
+
+<!-- CONSULTATION FORM -->
+<section class="section section--mid">
+  <div class="container">
+    <div style="max-width:740px;margin:0 auto;">
+      <div class="form-wrap">
+        <h2 class="form-title">Questionnaire de Consultation</h2>
+        <p class="form-sub">Remplissez ce formulaire pour nous aider à créer le tatouage parfait pour vous.</p>
+        <form action="mailto:contact@piercingandsign.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="field">
+              <label for="cNom">Nom complet *</label>
+              <input type="text" id="cNom" name="nom" required>
+            </div>
+            <div class="field">
+              <label for="cEmail">Email *</label>
+              <input type="email" id="cEmail" name="email" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="cTel">Téléphone</label>
+              <input type="tel" id="cTel" name="telephone">
+            </div>
+            <div class="field">
+              <label for="cAge">Âge *</label>
+              <input type="number" id="cAge" name="age" min="18" max="120" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="cZone">Zone du tatouage *</label>
+              <select id="cZone" name="zone" required>
+                <option value="">Sélectionnez la zone</option>
+                <option>Bras</option><option>Avant-bras</option><option>Épaule</option>
+                <option>Dos</option><option>Torse</option><option>Jambe</option>
+                <option>Mollet</option><option>Poignet</option><option>Cheville</option>
+                <option>Cou</option><option>Main</option><option>Autre</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cTaille">Taille approximative (cm) *</label>
+              <input type="number" id="cTaille" name="taille" min="1" max="100" step="0.5" placeholder="Ex: 10" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cCouleur">Couleur *</label>
+            <select id="cCouleur" name="couleur" required>
+              <option value="">Sélectionnez</option>
+              <option value="noir-gris">Noir et gris</option>
+              <option value="couleur">Couleur</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cInfo">Informations supplémentaires</label>
+            <textarea id="cInfo" name="info" placeholder="Description du design, références, contraintes médicales…"></textarea>
+          </div>
+          <button type="submit" class="btn btn--red" style="width:100%;justify-content:center;">Envoyer ma demande</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Infos &amp; Questions</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="q-item"><strong>Quel type de tatouage souhaitez-vous&nbsp;?</strong><p>Nos artistes peuvent créer un design original ou adapter un concept existant à votre style.</p></div>
+    <div class="q-item"><strong>Où souhaitez-vous le tatouage&nbsp;?</strong><p>La localisation est importante pour la conception et la durée de la séance.</p></div>
+    <div class="q-item"><strong>Quelle taille idéale&nbsp;?</strong><p>La taille affecte le détail, le temps de travail et le tarif final.</p></div>
+    <div class="q-item"><strong>Quels styles vous intéressent&nbsp;?</strong><p>Minimaliste, géométrique, floral, animalier, tribal, old school, réaliste…</p></div>
+    <div class="q-item"><strong>Première expérience&nbsp;?</strong><p>Si c'est votre premier tatouage, nous vous conseillerons sur la douleur et les soins.</p></div>
+    <div style="margin-top:28px;text-align:center;">
+      <button class="btn btn--red" onclick="closeModal();bookAppointment()">Réserver ma séance</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand-name">Piercing &amp; Sign</div>
+      <span class="footer__brand-tag">Bijoux · Tatouages · Piercings</span>
+      <p class="footer__desc">Boutique spécialisée à Compiègne. Qualité, sécurité et style depuis toujours.</p>
+    </div>
+    <div>
+      <div class="footer__col-title">Navigation</div>
+      <ul class="footer__links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="jewelry.html">Bijoux</a></li>
+        <li><a href="tattoos.html">Tatouages</a></li>
+        <li><a href="piercings.html">Piercings</a></li>
+        <li><a href="cart.html">Panier</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Services</div>
+      <ul class="footer__links">
+        <li><a href="jewelry.html">Collection Bijoux</a></li>
+        <li><a href="piercings.html">Piercings Titane</a></li>
+        <li><a href="tattoos.html">Tatouages Flash</a></li>
+        <li><a href="tattoos.html">Consultation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Contact</div>
+      <div class="footer__contact-row">
+        <span class="footer__contact-key">📍</span>
+        <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
+      </div>
+      <div class="footer__contact-row">
+        <span class="footer__contact-key">📞</span>
+        <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
+      </div>
+      <div class="footer__contact-row">
+        <span class="footer__contact-key">⏰</span>
+        <span class="footer__contact-val">Ouvert à partir de 10h</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="footer__copy">&copy; 2026 Piercing &amp; Sign · Tous droits réservés</span>
+    <div class="footer__socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="cart.html" class="cart-float" id="cartFloat">Panier <span id="cartCount"></span></a>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navList   = document.getElementById('navList');
+navToggle.addEventListener('click', () => {
+  navList.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', navList.classList.contains('open'));
+});
+document.querySelectorAll('.nav-list a').forEach(a =>
+  a.addEventListener('click', () => navList.classList.remove('open'))
+);
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCartFloat() {
+  const count = cart.length;
+  document.getElementById('cartCount').textContent = count > 0 ? `(${count})` : '';
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.classList.add('toast--out'); setTimeout(() => t.remove(), 350); }, 2800);
+}
+
+<<<<<<< HEAD
+function bookAppointment() {
+  cart.push({ name:'Rendez-vous Tatouage', price:50, image:'https://static.vecteezy.com/system/resources/previews/060/658/202/non_2x/black-silhouette-logo-tattoo-machine-with-vintage-old-retro-minimalist-concept-template-symbol-tattoo-studio-design-vector.jpg' });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartFloat();
+  showToast('✓ Réservation ajoutée au panier');
+  setTimeout(() => window.location.href = 'cart.html', 600);
+}
+=======
+        // Load tattoo flashers from localStorage or defaults
+        const defaultTattooFlashers = [
+            { src: 'PAS_photos/tattoo_1.jpeg', name: 'Design 1' },
+            { src: 'PAS_photos/tattoo_2.jpeg', name: 'Design 2' },
+            { src: 'PAS_photos/tattoo_3.jpeg', name: 'Design 3' },
+            { src: 'PAS_photos/tattoo_4.jpeg', name: 'Design 4' },
+            { src: 'PAS_photos/tattoo_5.jpeg', name: 'Design 5' },
+            { src: 'PAS_photos/tattoo_6.jpeg', name: 'Design 6' },
+            { src: 'PAS_photos/tattoo_7.jpeg', name: 'Design 7' },
+            { src: 'PAS_photos/tattoo_8.jpeg', name: 'Design 8' },
+            { src: 'PAS_photos/tattoo_9.jpeg', name: 'Design 9' },
+            { src: 'PAS_photos/tattoo_10.jpeg', name: 'Design 10' },
+            { src: 'PAS_photos/tattoo_11.jpeg', name: 'Design 11' },
+            { src: 'PAS_photos/tattoo_12.jpeg', name: 'Design 12' },
+            { src: 'PAS_photos/tattoo_13.jpeg', name: 'Design 13' },
+            { src: 'PAS_photos/tattoo_14.jpeg', name: 'Design 14' },
+            { src: 'PAS_photos/tattoo_15.jpeg', name: 'Design 15' },
+            { src: 'PAS_photos/tattoo_16.jpeg', name: 'Design 16' },
+            { src: 'PAS_photos/tattoo_17.jpeg', name: 'Design 17' },
+            { src: 'PAS_photos/tattoo_18.jpeg', name: 'Design 18' },
+            { src: 'PAS_photos/tattoo_19.jpeg', name: 'Design 19' },
+            { src: 'PAS_photos/tattoo_20.jpeg', name: 'Design 20' },
+            { src: 'PAS_photos/tattoo_21.jpeg', name: 'Design 21' },
+            { src: 'PAS_photos/tattoo_22.jpeg', name: 'Design 22' },
+            { src: 'PAS_photos/tattoo_23.jpeg', name: 'Design 23' },
+            { src: 'PAS_photos/tattoo_24.jpeg', name: 'Design 24' },
+            { src: 'PAS_photos/tattoo_25.jpeg', name: 'Design 25' },
+            { src: 'PAS_photos/tattoo_26.jpeg', name: 'Design 26' },
+            { src: 'PAS_photos/tattoo_27.jpeg', name: 'Design 27' },
+            { src: 'PAS_photos/tattoo_28.jpeg', name: 'Design 28' },
+            { src: 'PAS_photos/tattoo_29.jpeg', name: 'Design 29' },
+            { src: 'PAS_photos/tattoo_30.jpeg', name: 'Design 30' },
+            { src: 'PAS_photos/tattoo_31.jpeg', name: 'Design 31' },
+            { src: 'PAS_photos/tattoo_32.jpeg', name: 'Design 32' },
+            { src: 'PAS_photos/tattoo_33.jpeg', name: 'Design 33' },
+            { src: 'PAS_photos/tattoo_34.jpeg', name: 'Design 34' },
+            { src: 'PAS_photos/tattoo_35.jpeg', name: 'Design 35' }
+        ];
+        const tattooFlashers = JSON.parse(localStorage.getItem('tattoosImages')) || defaultTattooFlashers.map(f => ({ src: f.src, name: f.name }));
+
+        // Load edited texts and colors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load reordered texts
+            const reorderedTexts = JSON.parse(localStorage.getItem('tattoosTexts'));
+            if (reorderedTexts) {
+                reorderedTexts.forEach(text => {
+                    const element = document.querySelector(`#${text.id}`) || document.querySelector(`.${text.id}`);
+                    if (element) {
+                        element.textContent = text.content;
+                    }
+                });
+            }
+
+            // Apply color changes
+            const primaryColor = localStorage.getItem('primaryColor');
+            const secondaryColor = localStorage.getItem('secondaryColor');
+            const bgDarkColor = localStorage.getItem('bgDarkColor');
+            const textLightColor = localStorage.getItem('textLightColor');
+
+            if (primaryColor) document.documentElement.style.setProperty('--primary', primaryColor);
+            if (secondaryColor) document.documentElement.style.setProperty('--secondary', secondaryColor);
+            if (bgDarkColor) document.documentElement.style.setProperty('--bg-dark1', bgDarkColor);
+            if (textLightColor) document.documentElement.style.setProperty('--text-light', textLightColor);
+        });
+>>>>>>> 43051405fa9613c507b6f96b87a516149838b2c8
+
+function openModal()  { document.getElementById('modalBackdrop').classList.add('open'); }
+function closeModal() { document.getElementById('modalBackdrop').classList.remove('open'); }
+
+document.getElementById('modalBackdrop').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+const flashers = [
+  { src:'https://static.vecteezy.com/system/resources/previews/060/658/202/non_2x/black-silhouette-logo-tattoo-machine-with-vintage-old-retro-minimalist-concept-template-symbol-tattoo-studio-design-vector.jpg', name:'Minimaliste' },
+  { src:'https://i.pinimg.com/1200x/8a/7a/ce/8a7ace3453a4698df992a12603e8cba6.jpg', name:'Géométrique' },
+  { src:'https://images.squarespace-cdn.com/content/v1/639a593e05e30633a6b497da/1e1ccc6e-29a8-4edb-91d8-f2ee800cf4d9/CBC009EA-8B25-4862-B0AE-D171859D7AAA.jpg', name:'Floral' },
+  { src:'https://i.pinimg.com/736x/1a/30/bb/1a30bb00646eab6ff8ec1f045e0b8c08.jpg', name:'Animalier' },
+  { src:'https://inkster.eu/cdn/shop/products/156S_1200x.jpg?v=1663591527', name:'Symbole' },
+  { src:'https://images.stockcake.com/public/1/0/7/107bf3b9-0989-4f6b-b64a-95a853409174_large/tribal-tattoo-showcase-stockcake.jpg', name:'Tribal' },
+];
+
+const container = document.getElementById('flashersContainer');
+flashers.forEach(f => {
+  const el = document.createElement('div');
+  el.className = 'flasher';
+  el.innerHTML = `
+    <img src="${f.src}" alt="${f.name}">
+    <div class="flasher__label">${f.name}</div>
+    <div class="flasher__overlay">Cliquez pour plus d'infos</div>`;
+  el.addEventListener('click', openModal);
+  container.appendChild(el);
+});
+
+updateCartFloat();
+</script>
+<script src="effects.js"></script>
+</body>
+</html>

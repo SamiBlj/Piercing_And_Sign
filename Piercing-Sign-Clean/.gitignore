@@ -1,0 +1,11 @@
+.env
+.password_protection.txt
+
+# Admin credentials — NEVER commit this file
+admin-config.js
+
+# Misc
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

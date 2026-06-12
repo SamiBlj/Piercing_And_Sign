@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piercing & Sign | Admin Panel</title>
+
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, private">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red:   #b30000;
+            --dark1: #0f0f0f;
+            --dark2: #1a001a;
+            --rgb:   179,0,0;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--dark1) 0%, var(--dark2) 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        /* ── Nav ──────────────────────────── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10,10,10,0.97);
+            padding: 14px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(var(--rgb),.2);
+            backdrop-filter: blur(12px);
+        }
+        .nav-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25em;
+            color: var(--red);
+            text-decoration: none;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+        nav ul { list-style: none; display: flex; gap: 18px; }
+        nav ul li a {
+            color: #777;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: .78em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color .3s;
+        }
+        nav ul li a:hover { color: var(--red); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .session-clock {
+            font-size: .72em;
+            color: #3a3a3a;
+            letter-spacing: .5px;
+            font-variant-numeric: tabular-nums;
+        }
+        .logout-btn {
+            background: none;
+            border: 1px solid rgba(var(--rgb),.25);
+            color: #666;
+            padding: 6px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: .75em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            transition: all .25s;
+        }
+        .logout-btn:hover { border-color: var(--red); color: var(--red); }
+
+        /* ── Layout ───────────────────────── */
+        .layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 44px 28px 60px;
+        }
+        @media (max-width: 820px) {
+            .layout { grid-template-columns: 1fr; }
+        }
+
+        /* ── Panel card ───────────────────── */
+        .panel {
+            background: linear-gradient(145deg, rgba(26,26,26,.95), rgba(16,0,16,.95));
+            border: 1px solid rgba(var(--rgb),.13);
+            border-radius: 16px;
+            padding: 30px 28px;
+        }
+        .panel-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3em;
+            color: var(--red);
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(var(--rgb),.1);
+        }
+
+        /* ── Form ─────────────────────────── */
+        .field { margin-bottom: 16px; }
+        .field label {
+            display: block;
+            font-size: .75em;
+            font-weight: 600;
+            color: #777;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 10px 13px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: .92em;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color .25s, box-shadow .25s;
+        }
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(var(--rgb),.1);
+            background: rgba(255,255,255,.06);
+        }
+        .field textarea { resize: vertical; min-height: 72px; }
+        .field select option { background: #1a1a1a; }
+        .field-hint { font-size: .7em; color: #444; margin-top: 4px; }
+
+        .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        .add-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--red);
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            font-size: .88em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 4px;
+            font-family: 'Poppins', sans-serif;
+            transition: background .25s, transform .2s, box-shadow .25s;
+        }
+        .add-btn:hover:not(:disabled) {
+            background: #cc0000;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 22px rgba(var(--rgb),.3);
+        }
+        .add-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+        .form-banner {
+            display: none;
+            margin-top: 12px;
+            padding: 10px 13px;
+            border-radius: 8px;
+            font-size: .8em;
+            text-align: center;
+        }
+        .form-banner.ok  { background:rgba(46,125,50,.12); border:1px solid rgba(46,125,50,.3); color:#81c784; }
+        .form-banner.err { background:rgba(var(--rgb),.1); border:1px solid rgba(var(--rgb),.3); color:#ff7070; }
+
+        /* ── Product list ─────────────────── */
+        .list-meta {
+            font-size: .72em;
+            color: #3a3a3a;
+            text-align: right;
+            margin-bottom: 12px;
+            letter-spacing: .5px;
+        }
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 540px;
+            overflow-y: auto;
+            padding-right: 2px;
+        }
+        .product-list::-webkit-scrollbar { width: 3px; }
+        .product-list::-webkit-scrollbar-thumb { background: rgba(var(--rgb),.25); border-radius: 3px; }
+
+        .p-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(255,255,255,.05);
+            border-radius: 10px;
+            padding: 10px 13px;
+            transition: background .2s;
+        }
+        .p-item:hover { background: rgba(255,255,255,.05); }
+
+        .p-thumb {
+            width: 50px; height: 50px;
+            object-fit: cover;
+            border-radius: 7px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255,255,255,.07);
+            background: #1a1a1a;
+        }
+        .p-info { flex: 1; min-width: 0; }
+        .p-name {
+            font-size: .88em;
+            font-weight: 600;
+            color: #d0d0d0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .p-cat {
+            font-size: .7em;
+            color: #444;
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+        .p-price {
+            font-size: .9em;
+            font-weight: 700;
+            color: var(--red);
+            flex-shrink: 0;
+        }
+        .del-btn {
+            background: none;
+            border: 1px solid rgba(var(--rgb),.2);
+            color: #555;
+            padding: 4px 11px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: .72em;
+            letter-spacing: .5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all .2s;
+            flex-shrink: 0;
+        }
+        .del-btn:hover { border-color: var(--red); color: #ff7070; background: rgba(var(--rgb),.07); }
+
+        .empty {
+            text-align: center;
+            padding: 50px 20px;
+            color: #333;
+            font-size: .88em;
+        }
+
+        /* ── Footer ───────────────────────── */
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: .7em;
+            color: #202020;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Session guard — runs before anything renders -->
+<script>
+    (function guard() {
+        const tok = sessionStorage.getItem('ps_adm_tok');
+        const exp = parseInt(sessionStorage.getItem('ps_adm_exp') || '0', 10);
+        if (!tok || Date.now() >= exp) {
+            sessionStorage.removeItem('ps_adm_tok');
+            sessionStorage.removeItem('ps_adm_exp');
+            window.location.replace('login.html');
+            document.documentElement.style.display = 'none'; // hide flash
+        }
+    })();
+</script>
+
+<nav>
+    <a href="index.html" class="nav-brand">P&amp;S</a>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="jewelry.html">Boutique</a></li>
+    </ul>
+    <div class="nav-right">
+        <span class="session-clock" id="clock"></span>
+        <button class="logout-btn" id="logoutBtn">Déconnexion</button>
+    </div>
+</nav>
+
+<div class="layout">
+
+    <!-- ADD PRODUCT FORM -->
+    <div class="panel">
+        <div class="panel-title">➕ Ajouter un produit</div>
+        <form id="addForm" novalidate>
+
+            <div class="field">
+                <label for="pName">Nom *</label>
+                <input type="text" id="pName" placeholder="Ex: Bague Titane Premium"
+                       maxlength="120" required />
+            </div>
+
+            <div class="field">
+                <label for="pCat">Catégorie *</label>
+                <select id="pCat" required>
+                    <option value="">Sélectionner…</option>
+                    <option value="Bijoux">Bijoux</option>
+                    <option value="Piercings">Piercings</option>
+                    <option value="Accessoires">Accessoires</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="pDesc">Description</label>
+                <textarea id="pDesc" placeholder="Courte description…" maxlength="300"></textarea>
+            </div>
+
+            <div class="row-2">
+                <div class="field">
+                    <label for="pPrice">Prix (€) *</label>
+                    <input type="number" id="pPrice" placeholder="0.00"
+                           step="0.01" min="0" max="99999" required />
+                </div>
+                <div class="field">
+                    <label for="pStock">Stock</label>
+                    <input type="number" id="pStock" placeholder="—" min="0" max="9999" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="pImage">URL image *</label>
+                <input type="url" id="pImage" placeholder="https://…" required />
+                <p class="field-hint">Doit commencer par https://</p>
+            </div>
+
+            <button type="submit" class="add-btn" id="addBtn">Ajouter le produit</button>
+            <div class="form-banner" id="fBanner"></div>
+        </form>
+    </div>
+
+    <!-- PRODUCT LIST -->
+    <div class="panel">
+        <div class="panel-title">📦 Produits existants</div>
+        <div class="list-meta" id="listMeta"></div>
+        <div class="product-list" id="pList">
+            <div class="empty">Aucun produit.</div>
+        </div>
+    </div>
+
+</div>
+
+<footer>Piercing &amp; Sign &copy; 2026 — Admin</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   SESSION MANAGEMENT
+   ═════════════════════════════════════════════════════════════════ */
+const SESSION_TTL_MS = 4 * 60 * 60 * 1000;
+
+function sessionValid() {
+    const tok = sessionStorage.getItem('ps_adm_tok');
+    const exp = parseInt(sessionStorage.getItem('ps_adm_exp') || '0', 10);
+    return !!tok && Date.now() < exp;
+}
+
+function doLogout(expired = false) {
+    sessionStorage.removeItem('ps_adm_tok');
+    sessionStorage.removeItem('ps_adm_exp');
+    window.location.replace(expired ? 'login.html?expired=1' : 'login.html');
+}
+
+/* Re-check session every minute */
+setInterval(() => { if (!sessionValid()) doLogout(true); }, 60_000);
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    if (confirm('Se déconnecter de l\'admin ?')) doLogout();
+});
+
+/* ── Session countdown clock ── */
+function updateClock() {
+    const exp = parseInt(sessionStorage.getItem('ps_adm_exp') || '0', 10);
+    const rem = exp - Date.now();
+    if (rem <= 0) return;
+    const h = Math.floor(rem / 3_600_000);
+    const m = Math.floor((rem % 3_600_000) / 60_000);
+    const s = Math.floor((rem % 60_000) / 1_000);
+    const p = n => String(n).padStart(2, '0');
+    document.getElementById('clock').textContent = `Session expire dans ${p(h)}:${p(m)}:${p(s)}`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   PRODUCT STORAGE
+   ═════════════════════════════════════════════════════════════════ */
+const STORE_KEY = 'ps_products_v1';
+
+function loadProducts() {
+    try { return JSON.parse(localStorage.getItem(STORE_KEY) || '[]'); }
+    catch { return []; }
+}
+function saveProducts(arr) {
+    localStorage.setItem(STORE_KEY, JSON.stringify(arr));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECURITY HELPERS
+   ═════════════════════════════════════════════════════════════════ */
+function esc(str) {
+    return String(str)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function validUrl(str) {
+    try {
+        const u = new URL(str);
+        return u.protocol === 'https:' || u.protocol === 'http:';
+    } catch { return false; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   RENDER LIST
+   ═════════════════════════════════════════════════════════════════ */
+function renderList() {
+    const products = loadProducts();
+    const list     = document.getElementById('pList');
+    const meta     = document.getElementById('listMeta');
+
+    meta.textContent = `${products.length} produit${products.length !== 1 ? 's' : ''}`;
+
+    if (!products.length) {
+        list.innerHTML = '<div class="empty">Aucun produit pour le moment.</div>';
+        return;
+    }
+
+    list.innerHTML = '';
+    products.forEach((p, idx) => {
+        const row = document.createElement('div');
+        row.className = 'p-item';
+        row.innerHTML = `
+            <img class="p-thumb" src="${esc(p.image)}" alt=""
+                 onerror="this.src='';this.style.background='#222'">
+            <div class="p-info">
+                <div class="p-name">${esc(p.name)}</div>
+                <div class="p-cat">${esc(p.category || '—')}</div>
+            </div>
+            <div class="p-price">€${parseFloat(p.price).toFixed(2)}</div>
+            <button class="del-btn" data-idx="${idx}">Supprimer</button>
+        `;
+        row.querySelector('.del-btn').addEventListener('click', () => {
+            if (!sessionValid()) { doLogout(true); return; }
+            if (!confirm(`Supprimer "${p.name}" ?`)) return;
+            const updated = loadProducts();
+            updated.splice(idx, 1);
+            saveProducts(updated);
+            renderList();
+        });
+        list.appendChild(row);
+    });
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ADD PRODUCT FORM
+   ═════════════════════════════════════════════════════════════════ */
+function showBanner(text, type) {
+    const el = document.getElementById('fBanner');
+    el.textContent  = text;
+    el.className    = `form-banner ${type}`;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 4500);
+}
+
+document.getElementById('addForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!sessionValid()) { doLogout(true); return; }
+
+    const name     = document.getElementById('pName').value.trim();
+    const category = document.getElementById('pCat').value;
+    const desc     = document.getElementById('pDesc').value.trim();
+    const priceRaw = document.getElementById('pPrice').value;
+    const stockRaw = document.getElementById('pStock').value;
+    const image    = document.getElementById('pImage').value.trim();
+    const price    = parseFloat(priceRaw);
+
+    /* Validation */
+    if (!name)                          { showBanner('Le nom est requis.',           'err'); return; }
+    if (!category)                      { showBanner('Sélectionnez une catégorie.',  'err'); return; }
+    if (isNaN(price) || price < 0)      { showBanner('Prix invalide.',               'err'); return; }
+    if (!image || !validUrl(image))     { showBanner("URL d'image invalide (https:// requis).", 'err'); return; }
+
+    const product = {
+        id:       crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
+        name,
+        category,
+        desc,
+        price,
+        stock:    stockRaw !== '' ? parseInt(stockRaw, 10) : null,
+        image,
+        addedAt:  new Date().toISOString()
+    };
+
+    const products = loadProducts();
+    products.push(product);
+    saveProducts(products);
+    renderList();
+
+    document.getElementById('addForm').reset();
+    showBanner(`"${name}" ajouté avec succès !`, 'ok');
+});
+
+
+/* ── Init ── */
+renderList();
+</script>
+</body>
+</html>
