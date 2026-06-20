@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<!-- ── Navigation ────────────────────────────────────────── -->
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
     <span class="nav-logo-main">Piercing &amp; Sign</span>
@@ -29,7 +28,7 @@
   </ul>
 </nav>
 
-<!-- ── Page Hero ─────────────────────────────────────────── -->
+<!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero__bg" style="background-image:url('pictures/jewlery%20pictures/DSC_0100.jpg')"></div>
   <div class="page-hero__overlay"></div>
@@ -40,8 +39,8 @@
   </div>
 </div>
 
-<!-- ── Quality Strip ─────────────────────────────────────── -->
-<div style="background:var(--bg-1); padding:0 52px;">
+<!-- QUALITY STRIP -->
+<div style="background:var(--bg-1);padding:0 0 0 0;">
   <div class="container">
     <div class="quality-strip">
       <span>Titane ASTM F136</span>
@@ -54,13 +53,13 @@
   </div>
 </div>
 
-<!-- ── Catalogue ─────────────────────────────────────────── -->
+<!-- CATALOGUE -->
 <section class="section section--dark">
   <div class="container">
     <div class="section-header reveal">
       <span class="eyebrow">Collection exclusive</span>
       <h2>Notre Boutique en Ligne</h2>
-      <p>Chaque pièce est en Titane ASTM F136 — le standard des implants médicaux. Disponible en finition Dorée (PVD) ou Argentée.</p>
+      <p>Chaque pièce est en Titane ASTM F136 — le standard des implants médicaux. Disponible en finition Dorée (PVD) ou Argentée. Cliquez sur un bijou pour choisir votre taille et couleur.</p>
       <div class="rule"></div>
     </div>
 
@@ -74,12 +73,11 @@
       <button class="cat-tab" data-filter="nombril">Nombril</button>
     </div>
 
-    <!-- Products grid -->
     <div class="products-grid" id="productsGrid"></div>
   </div>
 </section>
 
-<!-- ── Features strip ────────────────────────────────────── -->
+<!-- FEATURES -->
 <div class="features-grid reveal">
   <div class="feature-item">
     <span class="feature-item__icon">⬡</span>
@@ -99,11 +97,11 @@
   <div class="feature-item">
     <span class="feature-item__icon">◇</span>
     <p class="feature-item__title">Visite en Boutique</p>
-    <p class="feature-item__desc">Venez découvrir notre stock en présentiel sur rendez-vous.</p>
+    <p class="feature-item__desc">Venez découvrir notre stock complet en présentiel sur rendez-vous.</p>
   </div>
 </div>
 
-<!-- ── CTA Band ───────────────────────────────────────────── -->
+<!-- CTA -->
 <section class="cta-band">
   <div class="cta-band__content">
     <h2>Besoin d'un conseil ?</h2>
@@ -115,7 +113,7 @@
   </div>
 </section>
 
-<!-- ── Footer ────────────────────────────────────────────── -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -140,7 +138,6 @@
           <li><a href="jewelry.html">Boutique en ligne</a></li>
           <li><a href="piercings.html">Piercing professionnel</a></li>
           <li><a href="tattoos.html">Tatouages sur mesure</a></li>
-          <li><a href="contact.html">Rendez-vous</a></li>
           <li><a href="contact.html">Visite en présentiel</a></li>
         </ul>
       </div>
@@ -151,10 +148,6 @@
           <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
         </div>
         <div class="footer__contact-row">
-          <span class="footer__contact-key">✉</span>
-          <span class="footer__contact-val"><a href="mailto:contact@piercingandsign.com">contact@piercingandsign.com</a></span>
-        </div>
-        <div class="footer__contact-row">
           <span class="footer__contact-key">☎</span>
           <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
         </div>
@@ -162,19 +155,14 @@
     </div>
     <div class="footer__bottom">
       <p class="footer__copy">&copy; 2026 Piercing &amp; Sign — Tous droits réservés</p>
-      <div class="footer__socials">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">TikTok</a>
-      </div>
     </div>
   </div>
 </footer>
 
-<!-- ── Floating cart button ───────────────────────────────── -->
+<!-- FLOATING CART -->
 <a href="cart.html" class="cart-float" id="cartFloat">Panier (<span id="cartCount">0</span>)</a>
 
-<!-- ── Product Modal ─────────────────────────────────────── -->
+<!-- PRODUCT MODAL -->
 <div class="pm-backdrop" id="pmBackdrop">
   <div class="pm-panel" id="pmPanel">
     <div class="pm-inner">
@@ -190,23 +178,18 @@
         <p class="pm-material">Titane ASTM F136 · Hypoallergénique · Qualité implant médical</p>
         <p class="pm-price-val" id="pmPrice"></p>
         <div class="pm-divider"></div>
-
-        <!-- Couleur -->
         <div class="pm-section">
           <span class="pm-label">Couleur</span>
           <div class="pm-swatches">
             <button class="color-swatch gold active" data-color="Doré" title="Doré"></button>
             <span class="swatch-name" id="colorLabel">Doré</span>
-            <button class="color-swatch silver" data-color="Argent" title="Argent" style="margin-left:8px;"></button>
+            <button class="color-swatch silver" data-color="Argent" title="Argent" style="margin-left:10px;"></button>
           </div>
         </div>
-
-        <!-- Taille -->
         <div class="pm-section">
           <span class="pm-label">Taille <small style="font-size:.9em;letter-spacing:0;text-transform:none;color:var(--t3);">(sélectionnez)</small></span>
           <div class="pm-sizes" id="pmSizes"></div>
         </div>
-
         <div class="pm-add-btn">
           <button id="pmAddBtn">Ajouter au Panier</button>
         </div>
@@ -215,220 +198,167 @@
   </div>
 </div>
 
-<!-- ── Toast container ───────────────────────────────────── -->
-<div id="toastArea"></div>
-
 <script src="effects.js"></script>
 <script>
-/* ── Products data ───────────────────────────────────────── */
-const PRODUCTS = [
-  // CLICKERS
-  {id:1,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0013.jpg', price:28, name:'Clicker Anneau Titane',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:2,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0018.jpg', price:32, name:'Clicker Serti Premium',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:3,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0019.jpg', price:35, name:'Clicker Crystal Étoile',   sizes:['6mm','8mm','10mm','12mm']},
-  {id:4,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0020.jpg', price:30, name:'Clicker Diamanté',         sizes:['6mm','8mm','10mm','12mm']},
-  {id:5,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0021.jpg', price:28, name:'Clicker Twist Élégant',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:6,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0022.jpg', price:33, name:'Clicker Lune & Étoile',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:7,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0023.jpg', price:31, name:'Clicker Serti Rond',       sizes:['6mm','8mm','10mm','12mm']},
-  {id:8,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0024.jpg', price:29, name:'Clicker Fleuri Délicat',   sizes:['6mm','8mm','10mm','12mm']},
-  {id:9,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0027.jpg', price:38, name:'Clicker Pavé Crystal',     sizes:['6mm','8mm','10mm','12mm']},
-  {id:10, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0028.jpg', price:34, name:'Clicker Serti Carré',      sizes:['6mm','8mm','10mm','12mm']},
-  {id:11, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0029.jpg', price:36, name:'Clicker Drop Étoile',      sizes:['6mm','8mm','10mm','12mm']},
-  {id:12, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0030.jpg', price:32, name:'Clicker Ovale Serti',      sizes:['6mm','8mm','10mm','12mm']},
-  {id:13, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0031.jpg', price:30, name:'Clicker Papillon',         sizes:['6mm','8mm','10mm','12mm']},
-  {id:14, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0032.jpg', price:42, name:'Clicker Serti Multiples',  sizes:['6mm','8mm','10mm','12mm']},
-  {id:15, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0033.jpg', price:37, name:'Clicker Arc Serti',        sizes:['6mm','8mm','10mm','12mm']},
-  {id:16, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0034.jpg', price:40, name:'Clicker Coeur Pavé',       sizes:['6mm','8mm','10mm','12mm']},
-  {id:17, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0035.jpg', price:35, name:'Clicker Baroque',          sizes:['6mm','8mm','10mm','12mm']},
-  {id:18, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0036.jpg', price:33, name:'Clicker Vintage Chic',     sizes:['6mm','8mm','10mm','12mm']},
-  {id:19, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0037.jpg', price:31, name:'Clicker Serti Losange',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:20, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0038.jpg', price:34, name:'Clicker Florentin',        sizes:['6mm','8mm','10mm','12mm']},
-  {id:21, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0039.jpg', price:38, name:'Clicker Opaline',          sizes:['6mm','8mm','10mm','12mm']},
-  {id:22, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0040.jpg', price:30, name:'Clicker Moderne Serti',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:23, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0041.jpg', price:36, name:'Clicker Art Nouveau',      sizes:['6mm','8mm','10mm','12mm']},
-  {id:24, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0042.jpg', price:28, name:'Clicker Pétale',           sizes:['6mm','8mm','10mm','12mm']},
-  {id:25, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0043.jpg', price:32, name:'Clicker Constellation',    sizes:['6mm','8mm','10mm','12mm']},
-  {id:26, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0044.jpg', price:29, name:'Clicker Serti Ovale',      sizes:['6mm','8mm','10mm','12mm']},
-  {id:27, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0060.jpg', price:44, name:'Clicker Cascade',          sizes:['6mm','8mm','10mm','12mm']},
-  {id:28, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0100.jpg', price:45, name:'Clicker Signature',        sizes:['6mm','8mm','10mm','12mm']},
-  {id:29, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0250.jpg', price:48, name:'Clicker Grand Luxe',       sizes:['6mm','8mm','10mm','12mm']},
-  // LABRETS
-  {id:30, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0300.jpg', price:22, name:'Labret Plat Étoile',       sizes:['6mm','8mm','10mm']},
-  {id:31, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0302.jpg', price:24, name:'Labret Serti Crystal',     sizes:['6mm','8mm','10mm']},
-  {id:32, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0305.jpg', price:26, name:'Labret Drop Élégant',      sizes:['6mm','8mm','10mm']},
-  {id:33, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0315.jpg', price:25, name:'Labret Fleur Pavé',        sizes:['6mm','8mm','10mm']},
-  {id:34, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0370.jpg', price:22, name:'Labret Disc Premium',      sizes:['6mm','8mm','10mm']},
-  {id:35, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0413.jpg', price:28, name:'Labret Constellation',     sizes:['6mm','8mm','10mm']},
-  {id:36, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0428.jpg', price:27, name:'Labret Baroque',           sizes:['6mm','8mm','10mm']},
-  {id:37, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0430.jpg', price:30, name:'Labret Opale Serti',       sizes:['6mm','8mm','10mm']},
-  {id:38, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0447.jpg', price:24, name:'Labret Losange',           sizes:['6mm','8mm','10mm']},
-  {id:39, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0460.jpg', price:28, name:'Labret Signature',         sizes:['6mm','8mm','10mm']},
-  // TOPS
-  {id:40, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0503.jpg', price:16, name:'Top Plat Crystal',         sizes:['6mm','8mm']},
-  {id:41, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0504.jpg', price:18, name:'Top Étoile Pavé',          sizes:['6mm','8mm']},
-  {id:42, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0505.jpg', price:20, name:'Top Fleur Délicat',        sizes:['6mm','8mm']},
-  {id:43, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0508.jpg', price:22, name:'Top Diamanté Premium',     sizes:['6mm','8mm']},
-  {id:44, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0509.jpg', price:19, name:'Top Serti Rond',           sizes:['6mm','8mm']},
-  {id:45, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0516.jpg', price:21, name:'Top Baroque Élégant',      sizes:['6mm','8mm']},
-  {id:46, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0519.jpg', price:17, name:'Top Constellation',        sizes:['6mm','8mm']},
-  {id:47, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0520.jpg', price:22, name:'Top Signature Luxe',       sizes:['6mm','8mm']},
-  // INDUSTRIELS
-  {id:48, cat:'industriel', img:'pictures/jewlery%20pictures/DSC_0150.jpg', price:35, name:'Barre Industriel Classic', sizes:['32mm','34mm','36mm','38mm']},
-  {id:49, cat:'industriel', img:'pictures/jewlery%20pictures/DSC_0340.jpg', price:42, name:'Barre Industriel Twist',   sizes:['32mm','34mm','36mm','38mm']},
-  {id:50, cat:'industriel', img:'pictures/jewlery%20pictures/DSC_0462.jpg', price:38, name:'Barre Industriel Serti',   sizes:['32mm','34mm','36mm','38mm']},
-  // NOMBRIL
-  {id:51, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0200.jpg', price:24, name:'Anneau Nombril Drop',      sizes:['6mm','8mm','10mm']},
-  {id:52, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0364.jpg', price:26, name:'Anneau Nombril Crystal',   sizes:['6mm','8mm','10mm']},
-  {id:53, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0389.jpg', price:28, name:'Anneau Nombril Étoile',    sizes:['6mm','8mm','10mm']},
-  {id:54, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0478.jpg', price:32, name:'Anneau Nombril Pavé',      sizes:['6mm','8mm','10mm']},
+/* ── Product data — ALL shop photos ─────────────────────── */
+const GROUPS = [
+  {
+    cat:'clicker', sizes:['6mm','8mm','10mm','12mm'], p0:24, p1:48,
+    nums:[13,14,18,19,20,21,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,
+     45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,
+     74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,
+     101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,
+     121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,
+     141,142,143,144,145,146,147,148,149,
+     151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,
+     231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,
+     251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,
+     281,282,283,284,286,287,288,290,295,296,297,298,299]
+  },
+  {
+    cat:'nombril', sizes:['6mm','8mm','10mm'], p0:20, p1:32,
+    nums:[171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,
+     191,192,193,194,195,196,197,198,199,200,
+     201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,
+     221,222,223,224,225,226,227,228,229,230]
+  },
+  {
+    cat:'labret', sizes:['6mm','8mm','10mm'], p0:18, p1:30,
+    nums:[300,301,302,303,304,305,306,307,308,309,311,312,313,314,315,316,317,318,319,320,
+     321,322,323,324,325,326,327,328,329,331,333,335,336,337,338,339,
+     341,342,345,346,347,348,349,350,351,352,353,354,355,357,359,360,362,363,364,365,
+     366,367,369,370,371,373,374,375,376,377,379,380,381,382,383,385,386,387,388,389,
+     390,391,392,393,396,397,398,399,
+     400,402,403,404,405,408,409,410,411,412,413,414,415,416,417,419,420,421,422,423,
+     425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,441,442,443,446,447,
+     448,450,451,452,453,454,455,456,457,458,459,460,461]
+  },
+  {
+    cat:'top', sizes:['6mm','8mm'], p0:14, p1:22,
+    nums:[463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,
+     483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,500,502,
+     503,504,505,506,507,508,509,510,511,512,513,514,516,517,518,519,520,521,522,523,524,525]
+  },
+  {
+    cat:'industriel', sizes:['32mm','34mm','36mm','38mm'], p0:32, p1:45,
+    nums:[150,340,462]
+  }
 ];
 
-/* ── State ───────────────────────────────────────────────── */
-let openId      = null;
-let selColor    = 'Doré';
-let selSize     = null;
+const CAT_LABEL = {clicker:'Clicker',labret:'Labret',top:'Top Plat',industriel:'Industriel',nombril:'Nombril'};
 
-/* ── Render products ─────────────────────────────────────── */
+let _id = 0;
+const PRODUCTS = [];
+for (const g of GROUPS) {
+  const range = g.p1 - g.p0;
+  for (const num of g.nums) {
+    _id++;
+    const price = g.p0 + Math.round(((_id % 9) / 8) * range);
+    PRODUCTS.push({
+      id:_id,
+      cat:g.cat,
+      img:`pictures/jewlery%20pictures/DSC_${String(num).padStart(4,'0')}.jpg`,
+      price,
+      name:`${CAT_LABEL[g.cat]} ${String(_id).padStart(3,'0')}`,
+      sizes:g.sizes
+    });
+  }
+}
+
+/* ── State ────────────────────────────── */
+let openId=null, selColor='Doré', selSize=null;
+
+/* ── Render products ──────────────────── */
 function renderProducts(filter) {
-  const grid = document.getElementById('productsGrid');
-  const list = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === filter);
-  grid.innerHTML = list.map(p => `
-    <div class="p-card p-card--min" onclick="openModal(${p.id})" role="button" tabindex="0" aria-label="${p.name}">
+  const list = filter==='all' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===filter);
+  document.getElementById('productsGrid').innerHTML = list.map(p=>`
+    <div class="p-card p-card--min" onclick="openModal(${p.id})" role="button" tabindex="0">
       <div class="p-card__img-wrap">
         <img class="p-card__img" src="${p.img}" alt="" loading="lazy">
         <div class="p-hover">
-          <span class="p-hover__price">${p.price}&nbsp;€</span>
+          <span class="p-hover__price">${p.price}&thinsp;€</span>
           <span class="p-hover__cta">Voir les options</span>
         </div>
       </div>
     </div>
   `).join('');
-  /* keyboard access */
-  grid.querySelectorAll('.p-card--min').forEach(c => {
-    c.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') c.click(); });
-  });
 }
 
-/* ── Modal ───────────────────────────────────────────────── */
+/* ── Modal ────────────────────────────── */
 function openModal(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if (!p) return;
-  openId   = id;
-  selColor = 'Doré';
-  selSize  = null;
-
-  document.getElementById('pmImg').src   = p.img;
-  document.getElementById('pmImg').alt   = p.name;
-  document.getElementById('pmName').textContent  = p.name;
-  document.getElementById('pmPrice').textContent = p.price + ' €';
-
-  /* Sizes */
-  document.getElementById('pmSizes').innerHTML = p.sizes.map(s =>
-    `<button class="size-chip" onclick="selectSize(this,'${s}')">${s}</button>`
-  ).join('');
-
-  /* Reset colour */
-  document.querySelectorAll('.color-swatch').forEach(sw => sw.classList.remove('active'));
+  const p=PRODUCTS.find(x=>x.id===id); if(!p) return;
+  openId=id; selColor='Doré'; selSize=null;
+  document.getElementById('pmImg').src=p.img;
+  document.getElementById('pmName').textContent=p.name;
+  document.getElementById('pmPrice').textContent=p.price+' €';
+  document.getElementById('pmSizes').innerHTML=p.sizes.map(s=>
+    `<button class="size-chip" onclick="selectSize(this,'${s}')">${s}</button>`).join('');
+  document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active'));
   document.querySelector('.color-swatch.gold').classList.add('active');
-  document.getElementById('colorLabel').textContent = 'Doré';
-
+  document.getElementById('colorLabel').textContent='Doré';
   document.getElementById('pmBackdrop').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-
-function closeModal() {
+function closeModal(){
   document.getElementById('pmBackdrop').classList.remove('open');
-  document.body.style.overflow = '';
-  openId  = null;
-  selSize = null;
+  document.body.style.overflow='';
+  openId=selSize=null;
+}
+function selectSize(el,s){
+  document.querySelectorAll('.size-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active'); selSize=s;
+}
+function selectColor(el,c){
+  document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active'); selColor=c;
+  document.getElementById('colorLabel').textContent=c;
 }
 
-function selectSize(el, size) {
-  document.querySelectorAll('.size-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  selSize = size;
-}
-
-function selectColor(el, color) {
-  document.querySelectorAll('.color-swatch').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  selColor = color;
-  document.getElementById('colorLabel').textContent = color;
-}
-
-/* ── Cart ────────────────────────────────────────────────── */
-function addToCartFromModal() {
-  if (!selSize) { showToast('Veuillez sélectionner une taille.'); return; }
-  const p = PRODUCTS.find(x => x.id === openId);
-  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  const key  = `${p.id}-${selSize}-${selColor}`;
-  const ex   = cart.find(c => c.key === key);
-  if (ex) { ex.qty++; } else { cart.push({ key, id:p.id, name:p.name, price:p.price, size:selSize, color:selColor, img:p.img, qty:1 }); }
-  localStorage.setItem('cart', JSON.stringify(cart));
+/* ── Cart ─────────────────────────────── */
+function addToCartFromModal(){
+  if(!selSize){showToast('Veuillez choisir une taille.');return;}
+  const p=PRODUCTS.find(x=>x.id===openId);
+  const cart=JSON.parse(localStorage.getItem('cart')||'[]');
+  const key=`${p.id}-${selSize}-${selColor}`;
+  const ex=cart.find(c=>c.key===key);
+  if(ex) ex.qty++; else cart.push({key,id:p.id,name:p.name,price:p.price,size:selSize,color:selColor,img:p.img,qty:1});
+  localStorage.setItem('cart',JSON.stringify(cart));
   updateCartUI();
-  showToast(`✓ ${p.name} (${selSize} · ${selColor}) ajouté`);
+  showToast(`✓ ${p.name} · ${selSize} · ${selColor}`);
   closeModal();
 }
-
-function updateCartUI() {
-  const cart  = JSON.parse(localStorage.getItem('cart') || '[]');
-  const count = cart.reduce((s,c) => s + c.qty, 0);
-  const countEl = document.getElementById('cartCount');
-  const badgeEl = document.getElementById('cartBadge');
-  if (countEl) countEl.textContent = count;
-  if (badgeEl) badgeEl.textContent = count > 0 ? `(${count})` : '';
-  const btn = document.getElementById('cartFloat');
-  if (btn) { btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop'); }
+function updateCartUI(){
+  const n=JSON.parse(localStorage.getItem('cart')||'[]').reduce((s,c)=>s+c.qty,0);
+  ['cartCount','cartBadge'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=n>0?n:'';});
 }
-
-/* ── Toast ───────────────────────────────────────────────── */
-function showToast(msg) {
-  const t = document.createElement('div');
-  t.className = 'toast'; t.textContent = msg;
+function showToast(msg){
+  const t=document.createElement('div');t.className='toast';t.textContent=msg;
   document.body.appendChild(t);
-  setTimeout(() => { t.classList.add('toast--out'); setTimeout(() => t.remove(), 400); }, 2800);
+  setTimeout(()=>{t.classList.add('toast--out');setTimeout(()=>t.remove(),400);},2800);
 }
 
-/* ── Init ────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+/* ── Init ─────────────────────────────── */
+document.addEventListener('DOMContentLoaded',()=>{
   renderProducts('all');
   updateCartUI();
 
-  /* Category tabs */
-  document.querySelectorAll('.cat-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
       tab.classList.add('active');
       renderProducts(tab.dataset.filter);
     });
   });
 
-  /* Modal close */
-  document.getElementById('pmClose').addEventListener('click', closeModal);
-  document.getElementById('pmBackdrop').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.getElementById('pmClose').addEventListener('click',closeModal);
+  document.getElementById('pmBackdrop').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+  document.querySelectorAll('.color-swatch').forEach(sw=>sw.addEventListener('click',()=>selectColor(sw,sw.dataset.color)));
+  document.getElementById('pmAddBtn').addEventListener('click',addToCartFromModal);
 
-  /* Colour swatches */
-  document.querySelectorAll('.color-swatch').forEach(sw => {
-    sw.addEventListener('click', () => selectColor(sw, sw.dataset.color));
-  });
-
-  /* Add to cart button */
-  document.getElementById('pmAddBtn').addEventListener('click', addToCartFromModal);
-
-  /* Nav toggle */
-  const toggle = document.getElementById('navToggle');
-  const list   = document.getElementById('navList');
-  toggle.addEventListener('click', () => {
-    const open = list.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-
-  /* Nav scroll effect */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive:true });
+  const tgl=document.getElementById('navToggle'),nl=document.getElementById('navList');
+  tgl.addEventListener('click',()=>{const o=nl.classList.toggle('open');tgl.setAttribute('aria-expanded',o);});
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40),{passive:true});
 });
 </script>
 </body>
