@@ -1223,7 +1223,7 @@ body > * { position:relative; z-index:1; }
   .hero__actions { flex-direction:column; }
   .btn--lg { width:100%; justify-content:center; }
   .flashers-grid  { grid-template-columns:1fr; }
-  .products-grid  { grid-template-columns:1fr; }
+  .products-grid  { grid-template-columns:repeat(2,1fr); }
   .features-grid  { grid-template-columns:1fr; }
   .cart-float { bottom:16px; right:16px; padding:11px 20px; }
   .form-wrap  { padding:28px 18px; }
@@ -1413,3 +1413,99 @@ body > * { position:relative; z-index:1; }
   display:flex; align-items:center; gap:8px;
 }
 .quality-strip span::before { content:'◆'; font-size:.6em; opacity:.6; }
+
+/* ═══════════════════════════════════════════════════════════
+   IPHONE / MOBILE POLISH
+   ═══════════════════════════════════════════════════════════ */
+
+/* iOS tap highlight & text scaling */
+* { -webkit-tap-highlight-color: transparent; }
+body { -webkit-text-size-adjust: 100%; }
+
+/* Safe area insets for iPhone notch/home bar */
+.nav         { padding-left:  max(28px, env(safe-area-inset-left));
+               padding-right: max(28px, env(safe-area-inset-right)); }
+.cart-float  { bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px));
+               right:  max(20px, env(safe-area-inset-right)); }
+.footer      { padding-bottom: max(32px, calc(env(safe-area-inset-bottom) + 24px)); }
+
+/* Product grid — 2 columns on phones ≤ 768px */
+@media(max-width:768px) {
+  .products-grid { grid-template-columns: repeat(2,1fr); gap:3px; }
+}
+
+/* Piercing gallery — 3 cols on tablet, 2 on phone */
+@media(max-width:768px) {
+  .p-gallery { grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width:480px) {
+  .p-gallery { grid-template-columns: repeat(2,1fr); }
+}
+
+/* Quality strip — horizontal scroll on mobile instead of wrapping */
+@media(max-width:768px) {
+  .quality-strip {
+    flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    padding-left:22px; padding-right:22px;
+    margin-left:-22px; margin-right:-22px;
+  }
+  .quality-strip::-webkit-scrollbar { display:none; }
+  .quality-strip span { flex-shrink:0; }
+}
+
+/* Page hero — shorter on phones */
+@media(max-width:768px) {
+  .page-hero { height:42vh; min-height:260px; }
+  .page-hero__title { letter-spacing:4px; }
+  .pierce-cta { padding:28px 20px; }
+}
+@media(max-width:480px) {
+  .page-hero { height:36vh; min-height:220px; }
+  .page-hero__title { font-size:clamp(1.5em,7vw,2.4em); letter-spacing:3px; }
+  .page-hero__sub { font-size:0.75em; }
+}
+
+/* Section header — tighter on phone */
+@media(max-width:768px) {
+  .section-header { margin-bottom:44px; }
+  .section-header h2 { font-size:1.9em; letter-spacing:2px; }
+}
+
+/* Product cards — bigger tap targets, no hover-only text on touch */
+@media(max-width:768px) {
+  .p-card__img-wrap { aspect-ratio:1/1; }
+  .p-hover { opacity:1; background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 55%); }
+  .p-hover__cta { display:none; }
+  .p-hover__price { transform:none; opacity:1; font-size:1em; }
+}
+
+/* Modal — taller image cap + safe area on iPhone */
+@media(max-width:768px) {
+  .pm-panel { max-height:92vh; max-height:calc(92dvh - env(safe-area-inset-bottom)); }
+  .pm-img-wrap { max-height:44vw; aspect-ratio:auto; }
+  .pm-img-wrap img { height:100%; }
+}
+@media(max-width:480px) {
+  .pm-img-wrap { max-height:52vw; }
+  .pm-name { font-size:1.2em; }
+  .pm-price-val { font-size:1.6em; }
+}
+
+/* Features grid — 1 column on small phones */
+@media(max-width:400px) {
+  .features-grid { grid-template-columns:1fr; }
+}
+
+/* Footer — stack on phone */
+@media(max-width:480px) {
+  .footer__bottom { gap:10px; }
+  .footer__socials { gap:14px; }
+}
+
+/* Buttons — full-width on very small phones */
+@media(max-width:380px) {
+  .hero__actions .btn { width:100%; text-align:center; justify-content:center; }
+  .cta-band__content > div { flex-direction:column; }
+  .cta-band__content > div .btn { width:100%; justify-content:center; }
+}
