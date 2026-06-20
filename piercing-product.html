@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piercing &amp; Sign | Détail Piercing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .product-page {
+      min-height: 80vh;
+      padding: 100px 0 80px;
+      background: var(--bg);
+    }
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1060px;
+      margin: 0 auto;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .product-layout::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+    }
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-3);
+      aspect-ratio: 1/1;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+    .product-img-wrap:hover img { transform: scale(1.04); }
+
+    .product-info {
+      padding: 48px 44px 44px;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--t2);
+      margin-bottom: 32px;
+      transition: color .2s;
+    }
+    .product-back:hover { color: var(--t1); }
+    .product-eyebrow {
+      font-size: 0.6em;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .product-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2em;
+      letter-spacing: 3px;
+      color: var(--t1);
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
+    .product-material {
+      font-size: 0.72em;
+      color: var(--t2);
+      letter-spacing: .5px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .product-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2em;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      text-shadow: 0 0 20px var(--gold-glow);
+    }
+    .product-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 24px;
+    }
+    .product-label {
+      font-size: 0.62em;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--t3);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .product-section { margin-bottom: 24px; }
+    .product-swatches {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .product-sizes {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .product-add-btn {
+      margin-top: auto;
+      padding-top: 28px;
+    }
+    .product-add-btn button {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95em;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+    }
+    .product-add-btn button:hover { background: var(--red-hover); transform: translateY(-1px); }
+    .product-add-btn button:active { transform: translateY(0); }
+
+    .product-nav-btns {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .product-nav-btns a {
+      flex: 1;
+      text-align: center;
+      padding: 11px 16px;
+      font-size: 0.68em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--t2);
+      transition: all .2s;
+    }
+    .product-nav-btns a:hover { border-color: var(--border3); color: var(--t1); }
+
+    .product-not-found {
+      text-align: center;
+      padding: 120px 24px;
+      color: var(--t2);
+    }
+    .product-not-found h2 { font-family:'Oswald',sans-serif; font-size:2em; margin-bottom:16px; color:var(--t1); }
+
+    @media(max-width:768px) {
+      .product-layout { grid-template-columns: 1fr; margin:0 16px; }
+      .product-img-wrap { aspect-ratio: 4/3; }
+      .product-info { padding: 28px 24px 32px; }
+      .product-name { font-size: 1.5em; }
+      .product-page { padding: 80px 0 60px; }
+    }
+    @media(max-width:480px) {
+      .product-info { padding: 22px 18px 28px; }
+      .product-back { margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">Piercing &amp; Sign</span>
+    <span class="nav-logo-sub">Bijoux · Tatouages · Piercings</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-list" id="navList">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="jewelry.html">Bijoux</a></li>
+    <li><a href="tattoos.html">Tatouages</a></li>
+    <li><a href="piercings.html">Piercings</a></li>
+    <li><a href="cart.html" class="nav-cart">Panier&nbsp;<span id="cartBadge"></span></a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="product-page">
+  <div class="container" id="productContainer">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<a href="cart.html" class="cart-float" id="cartFloat">Panier (<span id="cartCount">0</span>)</a>
+
+<script>
+/* ── All 46 piercing products ─────────────────────────── */
+const BASE = 'pictures/piercing%20pictures/';
+const TYPES = [
+  'Piercing Hélix','Piercing Lobe','Piercing Tragus','Piercing Daith',
+  'Piercing Nez','Piercing Septum','Piercing Nombril','Piercing Labret',
+  'Piercing Rook','Piercing Conch','Piercing Industriel','Piercing Arcade'
+];
+const PRICES = [35,38,40,42,45,35,38,42,40,45,38,35,42,40,38,45,35,40,42,38,45,35,38,40,42,45,38,40,35,42,45,38,40,42,35,45,38,42,40,35,45,38,40,42,35,38];
+
+const PHOTOS = [
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.04%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.04%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.04%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.04%20%284%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.04%20%285%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.04.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%284%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%285%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%286%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06%20%287%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.06.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.07%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.07%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.07.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.08%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.08%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.08%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.08.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.09%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.09%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.09%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.09.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.10%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.10%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.10%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.10.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.11%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.11%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.11%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.11%20%284%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.11%20%285%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.11.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%283%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%284%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%285%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%286%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12%20%287%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.12.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.13%20%281%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.13%20%282%29.jpeg',
+  'WhatsApp%20Image%202026-06-20%20at%2008.05.13.jpeg'
+];
+
+const PRODUCTS = PHOTOS.map((photo, i) => ({
+  id: i + 1,
+  img: BASE + photo,
+  name: TYPES[i % TYPES.length],
+  price: PRICES[i],
+  sizes: ['6mm','8mm','10mm','12mm']
+}));
+
+/* ── State ────────────────────────────── */
+let selColor = 'Doré';
+let selSize  = null;
+let product  = null;
+
+/* ── Load product from URL ────────────── */
+function init() {
+  const id = parseInt(new URLSearchParams(location.search).get('id'));
+  product = PRODUCTS.find(p => p.id === id);
+  document.title = product ? `Piercing & Sign | ${product.name}` : 'Piercing & Sign';
+
+  const container = document.getElementById('productContainer');
+
+  if (!product) {
+    container.innerHTML = `
+      <div class="product-not-found">
+        <h2>Produit introuvable</h2>
+        <p>Ce piercing n'existe pas ou a été retiré.</p>
+        <a href="piercings.html" class="btn btn--red" style="margin-top:24px;display:inline-block;">← Retour aux piercings</a>
+      </div>`;
+    return;
+  }
+
+  const prevId = product.id > 1 ? product.id - 1 : PRODUCTS.length;
+  const nextId = product.id < PRODUCTS.length ? product.id + 1 : 1;
+
+  container.innerHTML = `
+    <div class="product-layout">
+      <div class="product-img-wrap">
+        <img src="${product.img}" alt="${product.name}" id="productImg">
+      </div>
+      <div class="product-info">
+        <a href="piercings.html" class="product-back">← Retour aux piercings</a>
+        <span class="product-eyebrow">Titane ASTM F136</span>
+        <h1 class="product-name">${product.name}</h1>
+        <p class="product-material">Titane ASTM F136 · Hypoallergénique · Qualité implant médical<br>Réalisé en boutique à Compiègne</p>
+        <p class="product-price">${product.price}&nbsp;€</p>
+        <div class="product-divider"></div>
+
+        <div class="product-section">
+          <span class="product-label">Couleur</span>
+          <div class="product-swatches">
+            <button class="color-swatch gold active" data-color="Doré" title="Doré" id="swGold"></button>
+            <span class="swatch-name" id="colorLabel">Doré</span>
+            <button class="color-swatch silver" data-color="Argent" title="Argent" id="swSilver" style="margin-left:10px;"></button>
+          </div>
+        </div>
+
+        <div class="product-section">
+          <span class="product-label">Taille <small style="font-size:.9em;letter-spacing:0;text-transform:none;color:var(--t3);">(sélectionnez)</small></span>
+          <div class="product-sizes" id="productSizes">
+            ${product.sizes.map(s => `<button class="size-chip" data-size="${s}">${s}</button>`).join('')}
+          </div>
+        </div>
+
+        <div class="product-add-btn">
+          <button id="addBtn">Ajouter au Panier</button>
+        </div>
+
+        <div class="product-nav-btns">
+          <a href="piercing-product.html?id=${prevId}">← Précédent</a>
+          <a href="piercing-product.html?id=${nextId}">Suivant →</a>
+        </div>
+      </div>
+    </div>`;
+
+  /* colour swatches */
+  document.getElementById('swGold').addEventListener('click', () => setColor('Doré'));
+  document.getElementById('swSilver').addEventListener('click', () => setColor('Argent'));
+
+  /* size chips */
+  document.querySelectorAll('.size-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selSize = btn.dataset.size;
+    });
+  });
+
+  /* add to cart */
+  document.getElementById('addBtn').addEventListener('click', addToCart);
+
+  updateCartUI();
+}
+
+function setColor(color) {
+  selColor = color;
+  document.getElementById('colorLabel').textContent = color;
+  document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+  document.getElementById(color === 'Doré' ? 'swGold' : 'swSilver').classList.add('active');
+}
+
+function addToCart() {
+  if (!selSize) { showToast('Veuillez choisir une taille.'); return; }
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const key  = `p${product.id}-${selSize}-${selColor}`;
+  const ex   = cart.find(c => c.key === key);
+  if (ex) ex.qty++;
+  else cart.push({ key, id: product.id, name: product.name, price: product.price, size: selSize, color: selColor, img: product.img, qty: 1 });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartUI();
+  showToast(`✓ ${product.name} · ${selSize} · ${selColor} ajouté`);
+}
+
+function updateCartUI() {
+  const n = JSON.parse(localStorage.getItem('cart') || '[]').reduce((s, c) => s + c.qty, 0);
+  ['cartCount','cartBadge'].forEach(id => { const e = document.getElementById(id); if (e) e.textContent = n > 0 ? n : ''; });
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.classList.add('toast--out'); setTimeout(() => t.remove(), 400); }, 2800);
+}
+
+/* ── Nav ──────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+  const tgl = document.getElementById('navToggle');
+  const nl  = document.getElementById('navList');
+  tgl.addEventListener('click', () => { const o = nl.classList.toggle('open'); tgl.setAttribute('aria-expanded', o); });
+  window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 40), { passive: true });
+});
+</script>
+</body>
+</html>
