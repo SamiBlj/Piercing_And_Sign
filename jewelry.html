@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piercing &amp; Sign | Bijoux</title>
+  <title>Piercing &amp; Sign | Bijoux en ligne</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="nav">
+<!-- ── Navigation ────────────────────────────────────────── -->
+<nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
     <span class="nav-logo-main">Piercing &amp; Sign</span>
     <span class="nav-logo-sub">Bijoux · Tatouages · Piercings</span>
@@ -22,193 +23,413 @@
     <li><a href="jewelry.html">Bijoux</a></li>
     <li><a href="tattoos.html">Tatouages</a></li>
     <li><a href="piercings.html">Piercings</a></li>
-    <li><a href="cart.html" class="nav-cart">Panier</a></li>
+    <li><a href="cart.html" class="nav-cart">Panier&nbsp;<span id="cartBadge"></span></a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="login.html">Admin</a></li>
   </ul>
 </nav>
 
-<!-- PAGE HERO -->
+<!-- ── Page Hero ─────────────────────────────────────────── -->
 <div class="page-hero">
-  <div class="page-hero__bg" style="background-image:url('pictures/jewlery%20pictures/DSC_0060.jpg')"></div>
+  <div class="page-hero__bg" style="background-image:url('pictures/jewlery%20pictures/DSC_0100.jpg')"></div>
   <div class="page-hero__overlay"></div>
   <div class="page-hero__content">
-    <span class="eyebrow">Collection</span>
+    <span class="eyebrow">Boutique en ligne</span>
     <h1 class="page-hero__title">Bijoux</h1>
-    <p class="page-hero__sub">Titane grade 23 — qualité supérieure, photos réelles de notre stock</p>
+    <p class="page-hero__sub">Titane ASTM F136 · Qualité implant médical · Doré ou Argent</p>
   </div>
 </div>
 
-<!-- TITANIUM INFO -->
+<!-- ── Quality Strip ─────────────────────────────────────── -->
+<div style="background:var(--bg-1); padding:0 52px;">
+  <div class="container">
+    <div class="quality-strip">
+      <span>Titane ASTM F136</span>
+      <span>Hypoallergénique</span>
+      <span>Qualité implant</span>
+      <span>2 finitions disponibles</span>
+      <span>Livraison rapide</span>
+      <span>Visite en boutique possible</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Catalogue ─────────────────────────────────────────── -->
 <section class="section section--dark">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Pourquoi le titane&nbsp;?</span>
-      <h2>Le choix du luxe &amp; de la santé</h2>
+      <span class="eyebrow">Collection exclusive</span>
+      <h2>Notre Boutique en Ligne</h2>
+      <p>Chaque pièce est en Titane ASTM F136 — le standard des implants médicaux. Disponible en finition Dorée (PVD) ou Argentée.</p>
       <div class="rule"></div>
-      <p>Le titane G23 est le standard or pour les bijoux de piercing : léger, résistant, 100% hypoallergénique.</p>
     </div>
-    <div class="ti-grid">
-      <div class="ti-card reveal reveal-d1">
-        <h4>Matériau Rare &amp; Précieux</h4>
-        <p>Le titane est reconnu comme l'un des matériaux les plus rares et les plus luxueux. Sa rareté lui confère un prestige inégalé dans le monde des bijoux.</p>
-      </div>
-      <div class="ti-card reveal reveal-d2">
-        <h4>Hypoallergénique</h4>
-        <p>Sa composition chimique unique le rend complètement inerte. Idéal pour les peaux les plus sensibles et réactives.</p>
-      </div>
-      <div class="ti-card reveal reveal-d3">
-        <h4>Prévention des Infections</h4>
-        <p>Ses propriétés antimicrobiennes naturelles réduisent les risques d'infections — parfait pour les piercings frais.</p>
-      </div>
-      <div class="ti-card reveal reveal-d4">
-        <h4>Durabilité Extrême</h4>
-        <p>Incroyablement résistant à la corrosion. Vos bijoux resteront brillants et intacts pendant des décennies.</p>
-      </div>
+
+    <!-- Category tabs -->
+    <div class="cat-tabs" role="tablist" id="catTabs">
+      <button class="cat-tab active" data-filter="all">Tous</button>
+      <button class="cat-tab" data-filter="clicker">Clickers</button>
+      <button class="cat-tab" data-filter="labret">Labrets</button>
+      <button class="cat-tab" data-filter="top">Tops</button>
+      <button class="cat-tab" data-filter="industriel">Industriels</button>
+      <button class="cat-tab" data-filter="nombril">Nombril</button>
+    </div>
+
+    <!-- Products grid -->
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ── Features strip ────────────────────────────────────── -->
+<div class="features-grid reveal">
+  <div class="feature-item">
+    <span class="feature-item__icon">⬡</span>
+    <p class="feature-item__title">Titane ASTM F136</p>
+    <p class="feature-item__desc">Standard médical · aucune allergie · résistant à la corrosion.</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-item__icon">◈</span>
+    <p class="feature-item__title">2 Finitions</p>
+    <p class="feature-item__desc">Doré (PVD) ou Argent — précisez votre choix à la commande.</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-item__icon">◻</span>
+    <p class="feature-item__title">Expédition 24–48h</p>
+    <p class="feature-item__desc">Commande en ligne, retrait possible en boutique à Compiègne.</p>
+  </div>
+  <div class="feature-item">
+    <span class="feature-item__icon">◇</span>
+    <p class="feature-item__title">Visite en Boutique</p>
+    <p class="feature-item__desc">Venez découvrir notre stock en présentiel sur rendez-vous.</p>
+  </div>
+</div>
+
+<!-- ── CTA Band ───────────────────────────────────────────── -->
+<section class="cta-band">
+  <div class="cta-band__content">
+    <h2>Besoin d'un conseil ?</h2>
+    <p>Notre équipe vous accompagne en ligne ou en boutique à Compiègne — pour trouver le bijou parfait ou réserver votre piercing.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn--red btn--lg">Nous Contacter</a>
+      <a href="cart.html" class="btn btn--outline btn--lg">Voir mon Panier</a>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="section section--mid">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Bijoux</span>
-      <h2>Notre Collection</h2>
-      <div class="rule"></div>
-      <p>Bijoux en titane G23 — photos réelles de notre stock en boutique.</p>
-    </div>
-    <div class="products-grid" id="productContainer"></div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ── Footer ────────────────────────────────────────────── -->
 <footer class="footer">
-  <div class="footer__grid">
-    <div>
-      <div class="footer__brand-name">Piercing &amp; Sign</div>
-      <span class="footer__brand-tag">Bijoux · Tatouages · Piercings</span>
-      <p class="footer__desc">Boutique spécialisée à Compiègne. Qualité, sécurité et style depuis toujours.</p>
-    </div>
-    <div>
-      <div class="footer__col-title">Navigation</div>
-      <ul class="footer__links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="jewelry.html">Bijoux</a></li>
-        <li><a href="tattoos.html">Tatouages</a></li>
-        <li><a href="piercings.html">Piercings</a></li>
-        <li><a href="cart.html">Panier</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer__col-title">Services</div>
-      <ul class="footer__links">
-        <li><a href="jewelry.html">Collection Bijoux</a></li>
-        <li><a href="piercings.html">Piercings Titane</a></li>
-        <li><a href="tattoos.html">Tatouages Flash</a></li>
-        <li><a href="tattoos.html">Consultation</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer__col-title">Contact</div>
-      <div class="footer__contact-row">
-        <span class="footer__contact-key">📍</span>
-        <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Piercing &amp; Sign</p>
+        <span class="footer__brand-tag">Compiègne, France</span>
+        <p class="footer__desc">Bijoux en Titane ASTM F136, tatouages et piercings professionnels. Boutique en ligne &amp; visite en présentiel sur rendez-vous.</p>
       </div>
-      <div class="footer__contact-row">
-        <span class="footer__contact-key">📞</span>
-        <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
+      <div>
+        <p class="footer__col-title">Navigation</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="jewelry.html">Bijoux en ligne</a></li>
+          <li><a href="tattoos.html">Tatouages</a></li>
+          <li><a href="piercings.html">Piercings</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="footer__contact-row">
-        <span class="footer__contact-key">⏰</span>
-        <span class="footer__contact-val">Ouvert à partir de 10h</span>
+      <div>
+        <p class="footer__col-title">Services</p>
+        <ul class="footer__links">
+          <li><a href="jewelry.html">Boutique en ligne</a></li>
+          <li><a href="piercings.html">Piercing professionnel</a></li>
+          <li><a href="tattoos.html">Tatouages sur mesure</a></li>
+          <li><a href="contact.html">Rendez-vous</a></li>
+          <li><a href="contact.html">Visite en présentiel</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-row">
+          <span class="footer__contact-key">📍</span>
+          <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
+        </div>
+        <div class="footer__contact-row">
+          <span class="footer__contact-key">✉</span>
+          <span class="footer__contact-val"><a href="mailto:contact@piercingandsign.com">contact@piercingandsign.com</a></span>
+        </div>
+        <div class="footer__contact-row">
+          <span class="footer__contact-key">☎</span>
+          <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer__bottom">
-    <span class="footer__copy">&copy; 2026 Piercing &amp; Sign · Tous droits réservés</span>
-    <div class="footer__socials">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Piercing &amp; Sign — Tous droits réservés</p>
+      <div class="footer__socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<a href="cart.html" class="cart-float" id="cartFloat">Panier <span id="cartCount"></span></a>
+<!-- ── Floating cart button ───────────────────────────────── -->
+<a href="cart.html" class="cart-float" id="cartFloat">Panier (<span id="cartCount">0</span>)</a>
 
+<!-- ── Product Modal ─────────────────────────────────────── -->
+<div class="pm-backdrop" id="pmBackdrop">
+  <div class="pm-panel" id="pmPanel">
+    <div class="pm-inner">
+      <div class="pm-img-wrap">
+        <img id="pmImg" src="" alt="">
+      </div>
+      <div class="pm-content">
+        <div class="pm-close-row">
+          <button class="pm-close" id="pmClose" aria-label="Fermer">✕</button>
+        </div>
+        <span class="pm-eyebrow">Titane ASTM F136</span>
+        <h2 class="pm-name" id="pmName"></h2>
+        <p class="pm-material">Titane ASTM F136 · Hypoallergénique · Qualité implant médical</p>
+        <p class="pm-price-val" id="pmPrice"></p>
+        <div class="pm-divider"></div>
+
+        <!-- Couleur -->
+        <div class="pm-section">
+          <span class="pm-label">Couleur</span>
+          <div class="pm-swatches">
+            <button class="color-swatch gold active" data-color="Doré" title="Doré"></button>
+            <span class="swatch-name" id="colorLabel">Doré</span>
+            <button class="color-swatch silver" data-color="Argent" title="Argent" style="margin-left:8px;"></button>
+          </div>
+        </div>
+
+        <!-- Taille -->
+        <div class="pm-section">
+          <span class="pm-label">Taille <small style="font-size:.9em;letter-spacing:0;text-transform:none;color:var(--t3);">(sélectionnez)</small></span>
+          <div class="pm-sizes" id="pmSizes"></div>
+        </div>
+
+        <div class="pm-add-btn">
+          <button id="pmAddBtn">Ajouter au Panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Toast container ───────────────────────────────────── -->
+<div id="toastArea"></div>
+
+<script src="effects.js"></script>
 <script>
-const navToggle = document.getElementById('navToggle');
-const navList   = document.getElementById('navList');
-navToggle.addEventListener('click', () => {
-  navList.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', navList.classList.contains('open'));
-});
-document.querySelectorAll('.nav-list a').forEach(a =>
-  a.addEventListener('click', () => navList.classList.remove('open'))
-);
-
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function updateCartFloat() {
-  const count = cart.length;
-  document.getElementById('cartCount').textContent = count > 0 ? `(${count})` : '';
-}
-
-function addToCart(name, price, image) {
-  cart.push({ name, price, image });
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartFloat();
-  const btn = document.getElementById('cartFloat');
-  btn.classList.remove('pop');
-  btn.offsetHeight;
-  btn.classList.add('pop');
-  showToast(`✓ ${name} ajouté au panier`);
-}
-
-function showToast(msg) {
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => {
-    t.classList.add('toast--out');
-    setTimeout(() => t.remove(), 350);
-  }, 2800);
-}
-
-const products = [
-  { name:'Clicker Émeraudes Dorées',  desc:'Anneau clicker septum en titane G23 doré, orné de gemmes émeraude et cristaux pavés. Fermeture segment sécurisée.', price:38, image:'pictures/jewlery%20pictures/DSC_0022.jpg' },
-  { name:'Clicker Couronne Marquise', desc:'Clicker ornementale en titane doré G23 avec marquises cristal en demi-couronne. Idéal daith, septum ou hélix.', price:42, image:'pictures/jewlery%20pictures/DSC_0060.jpg' },
-  { name:'Daith Arc-en-ciel',         desc:'Arc incurvé multicolores (améthyste, bleu ciel, péridot, citrine, topaze, grenat) monté en titane G23 doré.', price:35, image:'pictures/jewlery%20pictures/DSC_0013.jpg' },
-  { name:'Labret Charm Cristal',      desc:'Labret flat back en titane doré G23 avec top baguette cristal et charm pendant cube. Élégant et raffiné.', price:32, image:'pictures/jewlery%20pictures/DSC_0447.jpg' },
-  { name:'Nombril Tournesol Cristaux',desc:'Barbell nombril en titane doré G23. Design tournesol serti de cristaux blancs étincelants.', price:34, image:'pictures/jewlery%20pictures/DSC_0200.jpg' },
-  { name:'Labret Feuilles Dorées',    desc:'Labret flat back titane G23 avec couronne de feuilles dorées 3D. Nature et raffinement pour conch, tragus ou lèvre.', price:28, image:'pictures/jewlery%20pictures/DSC_0300.jpg' },
+/* ── Products data ───────────────────────────────────────── */
+const PRODUCTS = [
+  // CLICKERS
+  {id:1,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0013.jpg', price:28, name:'Clicker Anneau Titane',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:2,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0018.jpg', price:32, name:'Clicker Serti Premium',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:3,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0019.jpg', price:35, name:'Clicker Crystal Étoile',   sizes:['6mm','8mm','10mm','12mm']},
+  {id:4,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0020.jpg', price:30, name:'Clicker Diamanté',         sizes:['6mm','8mm','10mm','12mm']},
+  {id:5,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0021.jpg', price:28, name:'Clicker Twist Élégant',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:6,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0022.jpg', price:33, name:'Clicker Lune & Étoile',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:7,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0023.jpg', price:31, name:'Clicker Serti Rond',       sizes:['6mm','8mm','10mm','12mm']},
+  {id:8,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0024.jpg', price:29, name:'Clicker Fleuri Délicat',   sizes:['6mm','8mm','10mm','12mm']},
+  {id:9,  cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0027.jpg', price:38, name:'Clicker Pavé Crystal',     sizes:['6mm','8mm','10mm','12mm']},
+  {id:10, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0028.jpg', price:34, name:'Clicker Serti Carré',      sizes:['6mm','8mm','10mm','12mm']},
+  {id:11, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0029.jpg', price:36, name:'Clicker Drop Étoile',      sizes:['6mm','8mm','10mm','12mm']},
+  {id:12, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0030.jpg', price:32, name:'Clicker Ovale Serti',      sizes:['6mm','8mm','10mm','12mm']},
+  {id:13, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0031.jpg', price:30, name:'Clicker Papillon',         sizes:['6mm','8mm','10mm','12mm']},
+  {id:14, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0032.jpg', price:42, name:'Clicker Serti Multiples',  sizes:['6mm','8mm','10mm','12mm']},
+  {id:15, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0033.jpg', price:37, name:'Clicker Arc Serti',        sizes:['6mm','8mm','10mm','12mm']},
+  {id:16, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0034.jpg', price:40, name:'Clicker Coeur Pavé',       sizes:['6mm','8mm','10mm','12mm']},
+  {id:17, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0035.jpg', price:35, name:'Clicker Baroque',          sizes:['6mm','8mm','10mm','12mm']},
+  {id:18, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0036.jpg', price:33, name:'Clicker Vintage Chic',     sizes:['6mm','8mm','10mm','12mm']},
+  {id:19, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0037.jpg', price:31, name:'Clicker Serti Losange',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:20, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0038.jpg', price:34, name:'Clicker Florentin',        sizes:['6mm','8mm','10mm','12mm']},
+  {id:21, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0039.jpg', price:38, name:'Clicker Opaline',          sizes:['6mm','8mm','10mm','12mm']},
+  {id:22, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0040.jpg', price:30, name:'Clicker Moderne Serti',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:23, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0041.jpg', price:36, name:'Clicker Art Nouveau',      sizes:['6mm','8mm','10mm','12mm']},
+  {id:24, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0042.jpg', price:28, name:'Clicker Pétale',           sizes:['6mm','8mm','10mm','12mm']},
+  {id:25, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0043.jpg', price:32, name:'Clicker Constellation',    sizes:['6mm','8mm','10mm','12mm']},
+  {id:26, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0044.jpg', price:29, name:'Clicker Serti Ovale',      sizes:['6mm','8mm','10mm','12mm']},
+  {id:27, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0060.jpg', price:44, name:'Clicker Cascade',          sizes:['6mm','8mm','10mm','12mm']},
+  {id:28, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0100.jpg', price:45, name:'Clicker Signature',        sizes:['6mm','8mm','10mm','12mm']},
+  {id:29, cat:'clicker',    img:'pictures/jewlery%20pictures/DSC_0250.jpg', price:48, name:'Clicker Grand Luxe',       sizes:['6mm','8mm','10mm','12mm']},
+  // LABRETS
+  {id:30, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0300.jpg', price:22, name:'Labret Plat Étoile',       sizes:['6mm','8mm','10mm']},
+  {id:31, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0302.jpg', price:24, name:'Labret Serti Crystal',     sizes:['6mm','8mm','10mm']},
+  {id:32, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0305.jpg', price:26, name:'Labret Drop Élégant',      sizes:['6mm','8mm','10mm']},
+  {id:33, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0315.jpg', price:25, name:'Labret Fleur Pavé',        sizes:['6mm','8mm','10mm']},
+  {id:34, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0370.jpg', price:22, name:'Labret Disc Premium',      sizes:['6mm','8mm','10mm']},
+  {id:35, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0413.jpg', price:28, name:'Labret Constellation',     sizes:['6mm','8mm','10mm']},
+  {id:36, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0428.jpg', price:27, name:'Labret Baroque',           sizes:['6mm','8mm','10mm']},
+  {id:37, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0430.jpg', price:30, name:'Labret Opale Serti',       sizes:['6mm','8mm','10mm']},
+  {id:38, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0447.jpg', price:24, name:'Labret Losange',           sizes:['6mm','8mm','10mm']},
+  {id:39, cat:'labret',     img:'pictures/jewlery%20pictures/DSC_0460.jpg', price:28, name:'Labret Signature',         sizes:['6mm','8mm','10mm']},
+  // TOPS
+  {id:40, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0503.jpg', price:16, name:'Top Plat Crystal',         sizes:['6mm','8mm']},
+  {id:41, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0504.jpg', price:18, name:'Top Étoile Pavé',          sizes:['6mm','8mm']},
+  {id:42, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0505.jpg', price:20, name:'Top Fleur Délicat',        sizes:['6mm','8mm']},
+  {id:43, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0508.jpg', price:22, name:'Top Diamanté Premium',     sizes:['6mm','8mm']},
+  {id:44, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0509.jpg', price:19, name:'Top Serti Rond',           sizes:['6mm','8mm']},
+  {id:45, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0516.jpg', price:21, name:'Top Baroque Élégant',      sizes:['6mm','8mm']},
+  {id:46, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0519.jpg', price:17, name:'Top Constellation',        sizes:['6mm','8mm']},
+  {id:47, cat:'top',        img:'pictures/jewlery%20pictures/DSC_0520.jpg', price:22, name:'Top Signature Luxe',       sizes:['6mm','8mm']},
+  // INDUSTRIELS
+  {id:48, cat:'industriel', img:'pictures/jewlery%20pictures/DSC_0150.jpg', price:35, name:'Barre Industriel Classic', sizes:['32mm','34mm','36mm','38mm']},
+  {id:49, cat:'industriel', img:'pictures/jewlery%20pictures/DSC_0340.jpg', price:42, name:'Barre Industriel Twist',   sizes:['32mm','34mm','36mm','38mm']},
+  {id:50, cat:'industriel', img:'pictures/jewlery%20pictures/DSC_0462.jpg', price:38, name:'Barre Industriel Serti',   sizes:['32mm','34mm','36mm','38mm']},
+  // NOMBRIL
+  {id:51, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0200.jpg', price:24, name:'Anneau Nombril Drop',      sizes:['6mm','8mm','10mm']},
+  {id:52, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0364.jpg', price:26, name:'Anneau Nombril Crystal',   sizes:['6mm','8mm','10mm']},
+  {id:53, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0389.jpg', price:28, name:'Anneau Nombril Étoile',    sizes:['6mm','8mm','10mm']},
+  {id:54, cat:'nombril',    img:'pictures/jewlery%20pictures/DSC_0478.jpg', price:32, name:'Anneau Nombril Pavé',      sizes:['6mm','8mm','10mm']},
 ];
 
-function renderProducts() {
-  const container = document.getElementById('productContainer');
-  container.innerHTML = '';
-  products.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'p-card';
-    card.innerHTML = `
+/* ── State ───────────────────────────────────────────────── */
+let openId      = null;
+let selColor    = 'Doré';
+let selSize     = null;
+
+/* ── Render products ─────────────────────────────────────── */
+function renderProducts(filter) {
+  const grid = document.getElementById('productsGrid');
+  const list = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === filter);
+  grid.innerHTML = list.map(p => `
+    <div class="p-card p-card--min" onclick="openModal(${p.id})" role="button" tabindex="0" aria-label="${p.name}">
       <div class="p-card__img-wrap">
-        <img class="p-card__img" src="${p.image}" alt="${p.name}" loading="lazy">
+        <img class="p-card__img" src="${p.img}" alt="" loading="lazy">
+        <div class="p-hover">
+          <span class="p-hover__price">${p.price}&nbsp;€</span>
+          <span class="p-hover__cta">Voir les options</span>
+        </div>
       </div>
-      <div class="p-card__body">
-        <div class="p-card__name">${p.name}</div>
-        <div class="p-card__desc">${p.desc}</div>
-        <div class="p-card__price">€${p.price}</div>
-        <button class="p-card__btn" onclick="addToCart('${p.name.replace(/'/g,"\\'")}',${p.price},'${p.image}')">Ajouter au panier</button>
-      </div>`;
-    container.appendChild(card);
+    </div>
+  `).join('');
+  /* keyboard access */
+  grid.querySelectorAll('.p-card--min').forEach(c => {
+    c.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') c.click(); });
   });
 }
 
-renderProducts();
-updateCartFloat();
+/* ── Modal ───────────────────────────────────────────────── */
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  openId   = id;
+  selColor = 'Doré';
+  selSize  = null;
+
+  document.getElementById('pmImg').src   = p.img;
+  document.getElementById('pmImg').alt   = p.name;
+  document.getElementById('pmName').textContent  = p.name;
+  document.getElementById('pmPrice').textContent = p.price + ' €';
+
+  /* Sizes */
+  document.getElementById('pmSizes').innerHTML = p.sizes.map(s =>
+    `<button class="size-chip" onclick="selectSize(this,'${s}')">${s}</button>`
+  ).join('');
+
+  /* Reset colour */
+  document.querySelectorAll('.color-swatch').forEach(sw => sw.classList.remove('active'));
+  document.querySelector('.color-swatch.gold').classList.add('active');
+  document.getElementById('colorLabel').textContent = 'Doré';
+
+  document.getElementById('pmBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('pmBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  openId  = null;
+  selSize = null;
+}
+
+function selectSize(el, size) {
+  document.querySelectorAll('.size-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  selSize = size;
+}
+
+function selectColor(el, color) {
+  document.querySelectorAll('.color-swatch').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  selColor = color;
+  document.getElementById('colorLabel').textContent = color;
+}
+
+/* ── Cart ────────────────────────────────────────────────── */
+function addToCartFromModal() {
+  if (!selSize) { showToast('Veuillez sélectionner une taille.'); return; }
+  const p = PRODUCTS.find(x => x.id === openId);
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const key  = `${p.id}-${selSize}-${selColor}`;
+  const ex   = cart.find(c => c.key === key);
+  if (ex) { ex.qty++; } else { cart.push({ key, id:p.id, name:p.name, price:p.price, size:selSize, color:selColor, img:p.img, qty:1 }); }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartUI();
+  showToast(`✓ ${p.name} (${selSize} · ${selColor}) ajouté`);
+  closeModal();
+}
+
+function updateCartUI() {
+  const cart  = JSON.parse(localStorage.getItem('cart') || '[]');
+  const count = cart.reduce((s,c) => s + c.qty, 0);
+  const countEl = document.getElementById('cartCount');
+  const badgeEl = document.getElementById('cartBadge');
+  if (countEl) countEl.textContent = count;
+  if (badgeEl) badgeEl.textContent = count > 0 ? `(${count})` : '';
+  const btn = document.getElementById('cartFloat');
+  if (btn) { btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop'); }
+}
+
+/* ── Toast ───────────────────────────────────────────────── */
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.classList.add('toast--out'); setTimeout(() => t.remove(), 400); }, 2800);
+}
+
+/* ── Init ────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts('all');
+  updateCartUI();
+
+  /* Category tabs */
+  document.querySelectorAll('.cat-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderProducts(tab.dataset.filter);
+    });
+  });
+
+  /* Modal close */
+  document.getElementById('pmClose').addEventListener('click', closeModal);
+  document.getElementById('pmBackdrop').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* Colour swatches */
+  document.querySelectorAll('.color-swatch').forEach(sw => {
+    sw.addEventListener('click', () => selectColor(sw, sw.dataset.color));
+  });
+
+  /* Add to cart button */
+  document.getElementById('pmAddBtn').addEventListener('click', addToCartFromModal);
+
+  /* Nav toggle */
+  const toggle = document.getElementById('navToggle');
+  const list   = document.getElementById('navList');
+  toggle.addEventListener('click', () => {
+    const open = list.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  /* Nav scroll effect */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive:true });
+});
 </script>
-<script src="effects.js"></script>
 </body>
 </html>

@@ -1229,3 +1229,187 @@ body > * { position:relative; z-index:1; }
   .form-wrap  { padding:28px 18px; }
   .section-header h2 { font-size:1.9em; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT MODAL (BIJOUX) — taille & couleur avant panier
+   ═══════════════════════════════════════════════════════════ */
+.pm-backdrop {
+  display:none; position:fixed; inset:0; z-index:600;
+  background:rgba(0,0,0,.92); backdrop-filter:blur(10px);
+  align-items:flex-end; justify-content:center; padding:0;
+}
+.pm-backdrop.open { display:flex; }
+
+.pm-panel {
+  background:var(--bg-2); border:1px solid var(--border); border-top:none;
+  width:100%; max-width:860px; max-height:92vh; overflow-y:auto;
+  animation:pmSlideUp .38s var(--ease); position:relative;
+}
+.pm-panel::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--red) 0%,var(--gold) 100%); z-index:1;
+}
+@keyframes pmSlideUp { from{opacity:0;transform:translateY(50px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pmFadeIn  { from{opacity:0;transform:scale(.97) translateY(14px)} to{opacity:1;transform:scale(1) translateY(0)} }
+
+@media(min-width:769px){
+  .pm-backdrop { align-items:center; padding:20px; }
+  .pm-panel { border:1px solid var(--border); border-radius:var(--r); max-height:88vh; animation:pmFadeIn .32s var(--ease); }
+}
+
+.pm-inner { display:grid; grid-template-columns:1fr 1fr; }
+@media(max-width:768px){ .pm-inner { grid-template-columns:1fr; } }
+
+.pm-img-wrap { position:relative; background:var(--bg-3); overflow:hidden; aspect-ratio:1/1; }
+.pm-img-wrap img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.93) saturate(.96);
+  transition:transform .6s var(--ease),filter .4s;
+}
+.pm-panel:hover .pm-img-wrap img { transform:scale(1.04); filter:brightness(1) saturate(1.05); }
+
+.pm-content { padding:36px 36px 32px; display:flex; flex-direction:column; }
+@media(max-width:480px){ .pm-content { padding:22px 20px 28px; } }
+
+.pm-close-row { display:flex; justify-content:flex-end; margin-bottom:16px; }
+.pm-close {
+  background:none; border:1px solid var(--border); color:var(--t2); font-size:1em;
+  width:34px; height:34px; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; border-radius:var(--r); transition:all .2s; line-height:1;
+}
+.pm-close:hover { border-color:var(--red); color:var(--red); background:var(--red-dim); }
+
+.pm-eyebrow { font-size:0.58em; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:10px; font-weight:600; }
+.pm-name { font-family:'Oswald',sans-serif; font-size:1.5em; letter-spacing:2px; color:var(--t1); margin-bottom:6px; line-height:1.2; }
+.pm-material { font-size:0.7em; color:var(--t2); letter-spacing:.5px; margin-bottom:18px; line-height:1.7; }
+.pm-price-val { font-family:'Oswald',sans-serif; font-size:2em; letter-spacing:1px; color:var(--gold); margin-bottom:24px; text-shadow:0 0 20px var(--gold-glow); }
+.pm-divider { height:1px; background:var(--border); margin:0 0 22px; }
+.pm-section { margin-bottom:22px; }
+.pm-label { font-size:0.62em; letter-spacing:2.5px; text-transform:uppercase; color:var(--t3); font-weight:600; margin-bottom:12px; display:block; }
+
+.pm-swatches { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.color-swatch {
+  position:relative; width:36px; height:36px; border-radius:50%;
+  border:2px solid transparent; cursor:pointer; outline:none; flex-shrink:0;
+  transition:transform .2s var(--spring),box-shadow .2s;
+}
+.color-swatch:hover { transform:scale(1.14); }
+.color-swatch.active { border-color:var(--t1); box-shadow:0 0 0 3px rgba(255,255,255,.15); }
+.color-swatch.gold   { background:radial-gradient(circle at 35% 35%,#f0d880,#c9a96e,#8a6830); }
+.color-swatch.silver { background:radial-gradient(circle at 35% 35%,#ffffff,#c8c8c8,#888888); }
+.swatch-name { font-size:0.65em; color:var(--t2); letter-spacing:1px; font-weight:600; }
+
+.pm-sizes { display:flex; gap:8px; flex-wrap:wrap; }
+.size-chip {
+  padding:8px 15px; background:transparent; border:1px solid var(--border2); border-radius:var(--r);
+  font-family:'Poppins',sans-serif; font-size:0.68em; font-weight:600; letter-spacing:1px;
+  color:var(--t2); cursor:pointer; transition:all .2s var(--ease);
+}
+.size-chip:hover { border-color:var(--red-border); color:var(--t1); background:var(--red-dim); }
+.size-chip.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 4px 12px var(--red-glow); }
+
+.pm-add-btn { margin-top:auto; padding-top:22px; }
+.pm-add-btn button {
+  width:100%; padding:15px 0;
+  background:linear-gradient(135deg,#cc0000 0%,#8a0000 100%);
+  color:#fff; border:none;
+  font-family:'Poppins',sans-serif; font-size:0.72em; font-weight:700;
+  letter-spacing:2.5px; text-transform:uppercase; cursor:pointer; border-radius:var(--r);
+  transition:all .25s var(--ease); position:relative; overflow:hidden;
+}
+.pm-add-btn button::after {
+  content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+  background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.12) 50%,transparent 80%);
+  transition:left .45s var(--ease);
+}
+.pm-add-btn button:hover { background:linear-gradient(135deg,#e00000,#a00000); transform:translateY(-1px); box-shadow:0 6px 20px var(--red-glow); }
+.pm-add-btn button:hover::after { left:160%; }
+
+/* ═══════════════════════════════════════════════════════════
+   MINIMAL CARD — image only, prix au survol, nom dans modal
+   ═══════════════════════════════════════════════════════════ */
+.p-card--min { cursor:pointer; }
+.p-card--min .p-card__body { display:none; }
+.p-card--min .p-card__img-wrap { aspect-ratio:1/1; }
+.p-card--min .p-hover {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,transparent 55%);
+  opacity:0; transition:opacity .32s;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+  padding:18px; pointer-events:none;
+}
+.p-card--min:hover .p-hover { opacity:1; }
+.p-hover__price {
+  font-family:'Oswald',sans-serif; font-size:1.2em; letter-spacing:2px; color:var(--gold);
+  transform:translateY(8px); transition:transform .3s var(--ease);
+  text-shadow:0 0 14px var(--gold-glow);
+}
+.p-card--min:hover .p-hover__price { transform:translateY(0); }
+.p-hover__cta {
+  font-size:0.58em; letter-spacing:1.5px; text-transform:uppercase;
+  color:rgba(255,255,255,.75); margin-top:4px;
+  transform:translateY(4px); transition:transform .3s .05s var(--ease),opacity .3s .05s;
+  opacity:0;
+}
+.p-card--min:hover .p-hover__cta { transform:translateY(0); opacity:1; }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE CATEGORY TABS — défilement horizontal, plus visible
+   ═══════════════════════════════════════════════════════════ */
+@media(max-width:768px){
+  .cat-tabs {
+    flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden;
+    justify-content:flex-start; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none; padding-bottom:6px;
+    margin-left:-22px; margin-right:-22px;
+    padding-left:22px; padding-right:22px;
+  }
+  .cat-tabs::-webkit-scrollbar { display:none; }
+  .cat-tab { flex-shrink:0; white-space:nowrap; padding:13px 24px; font-size:0.76em; min-height:46px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PIERCING GALLERY (page piercings — service & stock)
+   ═══════════════════════════════════════════════════════════ */
+.p-gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:3px;
+}
+.p-gallery__item { aspect-ratio:1/1; overflow:hidden; position:relative; }
+.p-gallery__item img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.82) saturate(.92);
+  transition:transform .6s var(--ease),filter .4s;
+}
+.p-gallery__item:hover img { transform:scale(1.08); filter:brightness(.98) saturate(1.05); }
+.p-gallery__item::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,var(--red-dim),transparent);
+  opacity:0; transition:opacity .4s;
+}
+.p-gallery__item:hover::after { opacity:1; }
+
+/* Piercing service highlight */
+.pierce-cta {
+  background:linear-gradient(135deg,rgba(120,0,0,.22) 0%,rgba(6,6,6,0) 60%);
+  border:1px solid var(--red-border); border-radius:var(--r);
+  padding:40px; text-align:center; position:relative; overflow:hidden;
+}
+.pierce-cta::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+}
+
+/* Luxury quality badge strip */
+.quality-strip {
+  display:flex; gap:32px; flex-wrap:wrap;
+  padding:28px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  margin-bottom:48px; align-items:center; justify-content:center;
+}
+.quality-strip span {
+  font-size:0.68em; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); font-weight:600; opacity:.85;
+  display:flex; align-items:center; gap:8px;
+}
+.quality-strip span::before { content:'◆'; font-size:.6em; opacity:.6; }

@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piercing &amp; Sign | Piercings</title>
+  <title>Piercing &amp; Sign | Studio Piercing</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="nav">
+<!-- ── Navigation ────────────────────────────────────────── -->
+<nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
     <span class="nav-logo-main">Piercing &amp; Sign</span>
     <span class="nav-logo-sub">Bijoux · Tatouages · Piercings</span>
@@ -28,58 +29,102 @@
   </ul>
 </nav>
 
-<!-- PAGE HERO -->
+<!-- ── Page Hero ─────────────────────────────────────────── -->
 <div class="page-hero">
-  <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=1400&q=80')"></div>
+  <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1617369120004-4848a64a1a24?w=1600&q=80')"></div>
   <div class="page-hero__overlay"></div>
   <div class="page-hero__content">
-    <span class="eyebrow">Titane Grade 23</span>
-    <h1 class="page-hero__title">Piercings</h1>
-    <p class="page-hero__sub">Professionnel, sécurisé, hypoallergénique</p>
+    <span class="eyebrow">Studio professionnel</span>
+    <h1 class="page-hero__title">Nous Faisons les Piercings</h1>
+    <p class="page-hero__sub">Expertise · Hygiène · Titane ASTM F136 · Espace stérilisé</p>
   </div>
 </div>
 
-<!-- INFO BLOCKS -->
+<!-- ── Quality Strip ─────────────────────────────────────── -->
+<div style="background:var(--bg-1); padding:0 52px;">
+  <div class="container">
+    <div class="quality-strip">
+      <span>Perceurs qualifiés</span>
+      <span>Titane ASTM F136</span>
+      <span>Matériel à usage unique</span>
+      <span>Espace stérilisé</span>
+      <span>Sur rendez-vous</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Service CTA ───────────────────────────────────────── -->
 <section class="section section--dark">
+  <div class="container">
+    <div class="pierce-cta reveal">
+      <span class="eyebrow" style="justify-content:center;">Notre service principal</span>
+      <h2 style="font-family:'Oswald',sans-serif;font-size:2.4em;letter-spacing:4px;margin-bottom:18px;color:var(--t1);">
+        Votre Piercing, Réalisé par des Experts
+      </h2>
+      <p style="color:var(--t2);font-size:0.92em;max-width:580px;margin:0 auto 32px;line-height:1.9;">
+        Chez Piercing &amp; Sign, nous pratiquons le perçage corporel avec rigueur et passion. Chaque séance se déroule dans un espace entièrement stérilisé, avec du matériel à usage unique et des bijoux en Titane ASTM F136 — le même standard que les implants médicaux.
+      </p>
+      <a href="contact.html" class="btn btn--red btn--lg">Prendre Rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Info Blocks ────────────────────────────────────────── -->
+<section class="section section--mid">
   <div class="container">
     <div class="info-blocks">
 
+      <!-- Block 1 : Titane ASTM F136 -->
       <div class="info-block reveal">
-        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0022.jpg" alt="Piercing titane">
+        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0100.jpg" alt="Titane ASTM F136">
         <div>
           <span class="eyebrow info-block__label">Notre standard</span>
-          <h2 class="info-block__title">Titane Implant Grade</h2>
-          <p class="info-block__text">Nous utilisons exclusivement du titane ASTM F136 (Grade 23) pour tous nos piercings — le même standard que les implants médicaux. Aucune allergie, aucun compromis sur votre santé.</p>
+          <h2 class="info-block__title">Titane ASTM F136</h2>
+          <p class="info-block__text">
+            Nous utilisons exclusivement du Titane ASTM F136 pour tous nos piercings — le même standard que les implants chirurgicaux. Aucune allergie, aucun compromis sur votre santé ou votre confort.
+          </p>
           <div class="ti-grid" style="margin-top:28px;">
             <div class="ti-card"><h4>Hypoallergénique</h4><p>Aucune réaction, même sur les peaux les plus sensibles.</p></div>
-            <div class="ti-card"><h4>Antimicrobien</h4><p>Réduit naturellement les risques d'infection.</p></div>
-            <div class="ti-card"><h4>Ultra léger</h4><p>Confort optimal, même pour les piercings d'oreille multiples.</p></div>
+            <div class="ti-card"><h4>Antimicrobien</h4><p>Réduit naturellement les risques d'infection post-piercing.</p></div>
+            <div class="ti-card"><h4>Ultra léger</h4><p>Confort optimal, idéal pour les piercings multiples.</p></div>
             <div class="ti-card"><h4>Durable</h4><p>Résistant à la corrosion, garde sa brillance des années.</p></div>
           </div>
         </div>
       </div>
 
+      <!-- Block 2 : Types de piercings -->
       <div class="info-block info-block--rev reveal">
-        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0060.jpg" alt="Types de piercings">
+        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0250.jpg" alt="Types de piercings">
         <div>
           <span class="eyebrow info-block__label">Nos spécialités</span>
           <h2 class="info-block__title">Tous Types de Piercings</h2>
-          <p class="info-block__text">Du lobe à l'hélix, du septum au nombril — nos perceurs qualifiés maîtrisent toutes les techniques. Chaque séance se déroule dans un espace stérilisé avec du matériel à usage unique.</p>
+          <p class="info-block__text">
+            Du lobe à l'hélix, du septum au nombril — nos perceurs maîtrisent toutes les techniques. Chaque séance est réalisée avec du matériel stérile à usage unique dans un espace dédié et sécurisé.
+          </p>
           <br>
-          <p class="info-block__text">Oreilles (lobe, hélix, tragus, conch, daith) · Nez · Septum · Labret · Langue · Nombril · Sourcil · Industriel</p>
+          <p class="info-block__text">
+            <strong style="color:var(--t1);">Oreilles :</strong> lobe, hélix, tragus, conch, daith, rook<br>
+            <strong style="color:var(--t1);">Visage :</strong> nez, septum, labret, sourcil<br>
+            <strong style="color:var(--t1);">Corps :</strong> nombril, langue, industriel
+          </p>
           <br>
           <a href="contact.html" class="btn btn--red" style="margin-top:8px;">Prendre rendez-vous</a>
         </div>
       </div>
 
+      <!-- Block 3 : Hygiène & sécurité -->
       <div class="info-block reveal">
-        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0150.jpg" alt="Soins piercing">
+        <img class="info-block__img" src="pictures/jewlery%20pictures/DSC_0060.jpg" alt="Hygiène et sécurité">
         <div>
-          <span class="eyebrow info-block__label">Après votre piercing</span>
-          <h2 class="info-block__title">Conseils de Cicatrisation</h2>
-          <p class="info-block__text">Un bon suivi est essentiel. Nos experts vous remettent une fiche de soins détaillée et restent disponibles pour toute question post-séance.</p>
-          <br>
-          <p class="info-block__text">Nettoyez 2× par jour avec du sérum physiologique · Évitez de toucher inutilement · Pas de piscine/mer pendant 4 semaines · Revenez nous voir si vous avez un doute.</p>
+          <span class="eyebrow info-block__label">Hygiène absolue</span>
+          <h2 class="info-block__title">Votre Sécurité, Notre Priorité</h2>
+          <p class="info-block__text">
+            Notre studio respecte les protocoles d'hygiène les plus stricts : stérilisation autoclave, gants à usage unique, surfaces désinfectées entre chaque client. Vous repartez avec une fiche de soins et un suivi personnalisé.
+          </p>
+          <div class="ti-grid" style="margin-top:28px;">
+            <div class="ti-card"><h4>Matériel stérile</h4><p>Tout le matériel de perçage est à usage unique.</p></div>
+            <div class="ti-card"><h4>Suivi post-piercing</h4><p>Conseils de cicatrisation et disponibilité pour vos questions.</p></div>
+          </div>
         </div>
       </div>
 
@@ -87,180 +132,167 @@
   </div>
 </section>
 
-<!-- PIERCING JEWELRY CATALOG -->
-<section class="section section--mid">
+<!-- ── Luxury & Quality messaging ────────────────────────── -->
+<section class="section section--dark">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Collection Titane G23</span>
-      <h2>Notre Catalogue</h2>
+      <span class="eyebrow">Le choix de la qualité</span>
+      <h2>L'Excellence à Chaque Détail</h2>
+      <p>Piercing &amp; Sign est le choix des clients qui ne transigent pas sur la qualité — bijoux haut de gamme, gestes précis, résultats durables.</p>
       <div class="rule"></div>
-      <p>Clickers, labrets, industriels, nombril — tous en titane ASTM F-136. Photos réelles de notre stock.</p>
     </div>
-
-    <!-- Category filter tabs -->
-    <div class="cat-tabs reveal">
-      <button class="cat-tab active" data-filter="all">Tout voir</button>
-      <button class="cat-tab" data-filter="clicker">Clickers &amp; Anneaux</button>
-      <button class="cat-tab" data-filter="labret">Labrets &amp; Flat Backs</button>
-      <button class="cat-tab" data-filter="top">Tops Décoratifs</button>
-      <button class="cat-tab" data-filter="industriel">Industriels</button>
-      <button class="cat-tab" data-filter="nombril">Nombril</button>
+    <div class="features-grid reveal">
+      <div class="feature-item">
+        <span class="feature-item__icon">◆</span>
+        <p class="feature-item__title">Bijoux Premium</p>
+        <p class="feature-item__desc">Titane ASTM F136 — identique aux implants médicaux. Aucun compromis.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-item__icon">◈</span>
+        <p class="feature-item__title">Geste Expert</p>
+        <p class="feature-item__desc">Perceurs formés et expérimentés pour un placement précis et sans douleur inutile.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-item__icon">◻</span>
+        <p class="feature-item__title">Studio Privé</p>
+        <p class="feature-item__desc">Espace dédié, ambiance sereine, discrétion assurée pour chaque séance.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-item__icon">◇</span>
+        <p class="feature-item__title">Suivi Complet</p>
+        <p class="feature-item__desc">Fiche de soins, conseils personnalisés et disponibilité après votre séance.</p>
+      </div>
     </div>
-
-    <div class="products-grid" id="piercingProductGrid"></div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer__grid">
-    <div>
-      <div class="footer__brand-name">Piercing &amp; Sign</div>
-      <span class="footer__brand-tag">Bijoux · Tatouages · Piercings</span>
-      <p class="footer__desc">Boutique spécialisée à Compiègne. Qualité, sécurité et style depuis toujours.</p>
+<!-- ── Our Jewelry Gallery (bijoux utilisés pour les piercings) -->
+<section class="section section--mid">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Notre stock</span>
+      <h2>Les Bijoux Que Nous Utilisons</h2>
+      <p>Tous nos bijoux de piercing sont en Titane ASTM F136, disponibles en finition Dorée ou Argentée. Découvrez notre collection complète en boutique ou sur notre boutique en ligne.</p>
+      <div class="rule"></div>
     </div>
-    <div>
-      <div class="footer__col-title">Navigation</div>
-      <ul class="footer__links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="jewelry.html">Bijoux</a></li>
-        <li><a href="tattoos.html">Tatouages</a></li>
-        <li><a href="piercings.html">Piercings</a></li>
-        <li><a href="cart.html">Panier</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+
+    <div class="p-gallery reveal">
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0013.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0019.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0027.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0031.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0034.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0039.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0041.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0044.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0060.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0150.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0200.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0250.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0300.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0305.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0315.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0340.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0364.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0370.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0389.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0428.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0447.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0460.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0462.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0478.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0503.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0505.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0509.jpg" alt="" loading="lazy"></div>
+      <div class="p-gallery__item"><img src="pictures/jewlery%20pictures/DSC_0520.jpg" alt="" loading="lazy"></div>
     </div>
-    <div>
-      <div class="footer__col-title">Services</div>
-      <ul class="footer__links">
-        <li><a href="jewelry.html">Collection Bijoux</a></li>
-        <li><a href="piercings.html">Piercings Titane</a></li>
-        <li><a href="tattoos.html">Tatouages Flash</a></li>
-        <li><a href="tattoos.html">Consultation</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer__col-title">Contact</div>
-      <div class="footer__contact-row">
-        <span class="footer__contact-key">📍</span>
-        <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
-      </div>
-      <div class="footer__contact-row">
-        <span class="footer__contact-key">📞</span>
-        <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
-      </div>
-      <div class="footer__contact-row">
-        <span class="footer__contact-key">⏰</span>
-        <span class="footer__contact-val">Ouvert à partir de 10h</span>
-      </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="jewelry.html" class="btn btn--outline btn--lg">Voir toute la boutique en ligne</a>
     </div>
   </div>
-  <div class="footer__bottom">
-    <span class="footer__copy">&copy; 2026 Piercing &amp; Sign · Tous droits réservés</span>
-    <div class="footer__socials">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
+</section>
+
+<!-- ── CTA Band ───────────────────────────────────────────── -->
+<section class="cta-band">
+  <div class="cta-band__content">
+    <h2>Prêt à vous faire percer ?</h2>
+    <p>Contactez-nous pour prendre rendez-vous dans notre studio à Compiègne. Venez aussi en présentiel découvrir notre collection de bijoux.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn--red btn--lg">Prendre Rendez-vous</a>
+      <a href="jewelry.html" class="btn btn--gold btn--lg">Boutique en Ligne</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Piercing &amp; Sign</p>
+        <span class="footer__brand-tag">Compiègne, France</span>
+        <p class="footer__desc">Bijoux en Titane ASTM F136, tatouages et piercings professionnels. Boutique en ligne &amp; visite en présentiel sur rendez-vous.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigation</p>
+        <ul class="footer__links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="jewelry.html">Bijoux en ligne</a></li>
+          <li><a href="tattoos.html">Tatouages</a></li>
+          <li><a href="piercings.html">Piercings</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Services</p>
+        <ul class="footer__links">
+          <li><a href="jewelry.html">Boutique en ligne</a></li>
+          <li><a href="piercings.html">Piercing professionnel</a></li>
+          <li><a href="tattoos.html">Tatouages sur mesure</a></li>
+          <li><a href="contact.html">Rendez-vous</a></li>
+          <li><a href="contact.html">Visite en présentiel</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <div class="footer__contact-row">
+          <span class="footer__contact-key">📍</span>
+          <span class="footer__contact-val">17 Rue de Paris<br>60200 Compiègne</span>
+        </div>
+        <div class="footer__contact-row">
+          <span class="footer__contact-key">✉</span>
+          <span class="footer__contact-val"><a href="mailto:contact@piercingandsign.com">contact@piercingandsign.com</a></span>
+        </div>
+        <div class="footer__contact-row">
+          <span class="footer__contact-key">☎</span>
+          <span class="footer__contact-val"><a href="tel:+33344202995">+33 3 44 20 29 95</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Piercing &amp; Sign — Tous droits réservés</p>
+      <div class="footer__socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<a href="cart.html" class="cart-float" id="cartFloat">Panier <span id="cartCount"></span></a>
-
-<script>
-const navToggle = document.getElementById('navToggle');
-const navList   = document.getElementById('navList');
-navToggle.addEventListener('click', () => {
-  navList.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', navList.classList.contains('open'));
-});
-document.querySelectorAll('.nav-list a').forEach(a =>
-  a.addEventListener('click', () => navList.classList.remove('open'))
-);
-
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function updateCartFloat() {
-  const count = cart.length;
-  document.getElementById('cartCount').textContent = count > 0 ? `(${count})` : '';
-}
-
-function addToCart(name, price, image) {
-  cart.push({ name, price, image });
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartFloat();
-  const btn = document.getElementById('cartFloat');
-  btn.classList.remove('pop'); btn.offsetHeight; btn.classList.add('pop');
-  showToast(`✓ ${name} ajouté au panier`);
-}
-
-function showToast(msg) {
-  const t = document.createElement('div');
-  t.className = 'toast'; t.textContent = msg;
-  document.body.appendChild(t);
-  setTimeout(() => { t.classList.add('toast--out'); setTimeout(() => t.remove(), 350); }, 2800);
-}
-
-const products = [
-  /* CLICKERS & ANNEAUX */
-  { cat:'clicker', name:'Clicker Émeraudes Dorées',    desc:'Anneau clicker septum en titane G23 doré avec gemmes émeraude et cristaux pavés.',       price:38, image:'pictures/jewlery%20pictures/DSC_0022.jpg' },
-  { cat:'clicker', name:'Clicker Couronne Marquise',   desc:'Clicker ornementale titane doré avec marquises cristal en demi-couronne. Daith/hélix.',   price:42, image:'pictures/jewlery%20pictures/DSC_0060.jpg' },
-  { cat:'clicker', name:'Daith Arc-en-ciel',           desc:'Arc multicolore (améthyste, bleu ciel, péridot, topaze, grenat) en titane G23 doré.',     price:35, image:'pictures/jewlery%20pictures/DSC_0013.jpg' },
-  { cat:'clicker', name:'Croissant Daith Cristaux',    desc:'Anneau demi-lune titane doré serti de cristaux blancs sur toute la courbe.',              price:38, image:'pictures/jewlery%20pictures/DSC_0035.jpg' },
-  { cat:'clicker', name:'Clicker Arabesques',          desc:'Clicker segment avec design arabesque en titane. Disponible argent et doré.',              price:30, image:'pictures/jewlery%20pictures/DSC_0100.jpg' },
-  { cat:'clicker', name:'Anneau Horseshoe Or',         desc:'Anneau fer à cheval en titane G23 doré. Simple, solide et poli miroir.',                  price:20, image:'pictures/jewlery%20pictures/DSC_0250.jpg' },
-  /* LABRETS & FLAT BACKS */
-  { cat:'labret',  name:'Labret Feuilles Dorées',      desc:'Flat back titane G23 doré avec couronne de feuilles 3D. Conch, tragus ou lèvre.',          price:28, image:'pictures/jewlery%20pictures/DSC_0300.jpg' },
-  { cat:'labret',  name:'Labret Serpent Silver',       desc:'Flat back titane argenté avec charm serpent sculpté. Design reptilien unique.',             price:25, image:'pictures/jewlery%20pictures/DSC_0370.jpg' },
-  { cat:'labret',  name:'Labret Charm Cristal',        desc:'Labret titane doré avec top baguette cristal et charm pendant cube scintillant.',           price:32, image:'pictures/jewlery%20pictures/DSC_0447.jpg' },
-  { cat:'labret',  name:'Labret Diablotin',            desc:'Flat back titane noir avec boule sphère et petites cornes. Édition limitée.',               price:22, image:'pictures/jewlery%20pictures/DSC_0460.jpg' },
-  { cat:'labret',  name:'Labret Gem Rainbow',          desc:'Flat back titane avec top multi-gemmes arc-en-ciel. Tragus, hélix, lèvre.',                 price:26, image:'pictures/jewlery%20pictures/DSC_0428.jpg' },
-  { cat:'labret',  name:'Labret Fleur Cristal',        desc:'Flat back titane G23 avec fleur en cristaux pavés. Élégant, parfait pour le tragus.',       price:29, image:'pictures/jewlery%20pictures/DSC_0430.jpg' },
-  /* TOPS DÉCORATIFS */
-  { cat:'top',     name:'Top Cristal Bleu Arrow',      desc:'Top vissé titane argenté avec gemme bleue taillée en flèche. Compatible tous flat backs.',  price:18, image:'pictures/jewlery%20pictures/DSC_0503.jpg' },
-  { cat:'top',     name:'Top Améthyste Bezel',         desc:'Top en titane serti d\'une améthyste en bezel. Disque plat et raffiné.',                    price:18, image:'pictures/jewlery%20pictures/DSC_0520.jpg' },
-  { cat:'top',     name:'Top Opale Synthétique',       desc:'Top opale ronde en titane G23. Jeux de lumière irisés, compatible tous pas de vis.',         price:20, image:'pictures/jewlery%20pictures/DSC_0516.jpg' },
-  { cat:'top',     name:'Top Cristal Poire',           desc:'Top en titane avec pierre taillée poire. Compact, élégant pour hélix ou tragus.',            price:18, image:'pictures/jewlery%20pictures/DSC_0508.jpg' },
-  { cat:'top',     name:'Top Sphère Brillante',        desc:'Boule poli miroir en titane G23. Classique intemporel, compatible tous barbells.',           price:12, image:'pictures/jewlery%20pictures/DSC_0509.jpg' },
-  /* INDUSTRIELS */
-  { cat:'industriel', name:'Barbell Industriel Couronne', desc:'Barbell 38mm en titane doré G23 avec détail couronne central et billes vissées.',          price:35, image:'pictures/jewlery%20pictures/DSC_0150.jpg' },
-  { cat:'industriel', name:'Barbell Industriel Classic',  desc:'Barbell droit 38mm en titane G23 poli. Ultra-résistant, billes 5mm incluses.',             price:28, image:'pictures/jewlery%20pictures/DSC_0462.jpg' },
-  /* NOMBRIL */
-  { cat:'nombril', name:'Nombril Tournesol Cristaux',  desc:'Barbell courbe nombril titane doré G23. Design tournesol avec cristaux pavés.',              price:34, image:'pictures/jewlery%20pictures/DSC_0200.jpg' },
-  { cat:'nombril', name:'Nombril Baguette Charm',      desc:'Barbell nombril en titane doré, top baguette cristal avec charm pendant carré.',             price:30, image:'pictures/jewlery%20pictures/DSC_0413.jpg' },
-  { cat:'nombril', name:'Nombril Solitaire Or',        desc:'Barbell nombril classique en titane doré G23 avec solitaire cristal blanc.',                 price:26, image:'pictures/jewlery%20pictures/DSC_0364.jpg' },
-];
-
-const grid = document.getElementById('piercingProductGrid');
-
-function renderProducts(filter) {
-  grid.innerHTML = '';
-  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
-  filtered.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'p-card';
-    card.innerHTML = `
-      <div class="p-card__img-wrap"><img class="p-card__img" src="${p.image}" alt="${p.name}" loading="lazy"></div>
-      <div class="p-card__body">
-        <div class="p-card__name">${p.name}</div>
-        <div class="p-card__desc">${p.desc}</div>
-        <div class="p-card__price">€${p.price}</div>
-        <button class="p-card__btn" onclick="addToCart('${p.name.replace(/'/g,"\\'")}',${p.price},'${p.image}')">Ajouter au panier</button>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-document.querySelectorAll('.cat-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    renderProducts(tab.dataset.filter);
-  });
-});
-
-renderProducts('all');
-updateCartFloat();
-</script>
 <script src="effects.js"></script>
+<script>
+  const toggle = document.getElementById('navToggle');
+  const list   = document.getElementById('navList');
+  toggle.addEventListener('click', () => {
+    const open = list.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive:true });
+</script>
 </body>
 </html>
