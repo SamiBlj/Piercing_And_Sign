@@ -266,7 +266,7 @@ for (const g of GROUPS) {
 }
 
 /* ── State ────────────────────────────── */
-let openId=null, selColor='Doré', selSize=null;
+let openId=null, selColor='Doré', selSize=null, openImgBase=null;
 
 /* ── Render products ──────────────────── */
 function renderProducts(filter) {
@@ -287,7 +287,7 @@ function renderProducts(filter) {
 /* ── Modal ────────────────────────────── */
 function openModal(id) {
   const p=PRODUCTS.find(x=>x.id===id); if(!p) return;
-  openId=id; selColor='Doré'; selSize=null;
+  openId=id; selColor='Doré'; selSize=null; openImgBase=p.img;
   document.getElementById('pmImg').src=p.img;
   document.getElementById('pmName').textContent=p.name;
   document.getElementById('pmPrice').textContent=p.price+' €';
@@ -312,6 +312,16 @@ function selectColor(el,c){
   document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active'));
   el.classList.add('active'); selColor=c;
   document.getElementById('colorLabel').textContent=c;
+  const pmImg=document.getElementById('pmImg');
+  if(c==='Argent'){
+    const altSrc=openImgBase.replace('.jpg','-2.jpg');
+    const test=new Image();
+    test.onload=()=>{pmImg.src=altSrc;};
+    test.onerror=()=>{pmImg.src=openImgBase;};
+    test.src=altSrc;
+  } else {
+    pmImg.src=openImgBase;
+  }
 }
 
 /* ── Cart ─────────────────────────────── */
