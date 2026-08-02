@@ -9,25 +9,41 @@
 </head>
 <body>
 
-<!-- ── Navigation ────────────────────────────────────────── -->
+<div class="announce-bar">Titane ASTM F136 &nbsp;·&nbsp; <strong>Bijoux hypoallergéniques</strong> &nbsp;·&nbsp; Boutique en ligne 24h/7 &nbsp;·&nbsp; Retrait à Compiègne</div>
+
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
     <span class="nav-logo-main">Piercing &amp; Sign</span>
     <span class="nav-logo-sub">Bijoux · Tatouages · Piercings</span>
   </a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
   <ul class="nav-list" id="navList">
     <li><a href="index.html">Accueil</a></li>
     <li><a href="jewelry.html">Bijoux</a></li>
     <li><a href="tattoos.html">Tatouages</a></li>
     <li><a href="piercings.html">Piercings</a></li>
-    <li><a href="cart.html" class="nav-cart">Panier</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="login.html">Admin</a></li>
   </ul>
+  <div class="nav-actions">
+    <button class="nav-search-btn" id="navSearchBtn" aria-label="Rechercher">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </button>
+    <a href="cart.html" class="nav-cart-icon" aria-label="Panier">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="nav-cart-count" id="cartBadge"></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+
+<div class="nav-search" id="navSearch">
+  <div class="nav-search__inner">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="search" class="nav-search__input" id="navSearchInput" placeholder="Rechercher un bijou — clicker, labret, nombril…" autocomplete="off" spellcheck="false">
+    <button class="nav-search__close" id="navSearchClose">✕</button>
+  </div>
+</div>
 
 <!-- ── Page Hero ─────────────────────────────────────────── -->
 <div class="page-hero">
@@ -300,17 +316,6 @@
 </footer>
 
 <script src="effects.js"></script>
-<script>
-  const toggle = document.getElementById('navToggle');
-  const list   = document.getElementById('navList');
-  toggle.addEventListener('click', () => {
-    const open = list.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive:true });
-</script>
+<script src="nav.js"></script>
 </body>
 </html>

@@ -1510,6 +1510,133 @@ body { -webkit-text-size-adjust: 100%; }
   .cta-band__content > div .btn { width:100%; justify-content:center; }
 }
 
+/* ── Announcement Bar ──────────────────────────────────── */
+.announce-bar {
+  background: var(--bg-2);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .7rem;
+  font-weight: 400;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.announce-bar strong { color: var(--gold); font-weight: 600; }
+
+/* ── Nav Grid Layout (logo | links centered | actions) ── */
+.nav {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0 !important;
+}
+/* Nav list fills middle column, centers its links */
+.nav-list { justify-content: center; }
+
+/* ── Nav Actions (search + cart + hamburger) ──────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-self: end;
+}
+.nav-search-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--t2); padding: 10px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px; transition: color .2s, background .2s;
+}
+.nav-search-btn:hover { color: var(--t1); background: rgba(255,255,255,.05); }
+.nav-cart-icon {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  color: var(--t2); padding: 10px; border-radius: 6px;
+  transition: color .2s; text-decoration: none;
+}
+.nav-cart-icon:hover { color: var(--t1); }
+.nav-cart-count {
+  position: absolute; top: 5px; right: 3px;
+  background: var(--red); color: #fff;
+  font-family: 'Poppins', sans-serif; font-size: .52rem; font-weight: 700;
+  min-width: 15px; height: 15px; border-radius: 8px;
+  display: none; align-items: center; justify-content: center; padding: 0 3px;
+}
+.nav-cart-count.visible { display: flex; }
+
+/* ── Search Overlay ───────────────────────────────────── */
+.nav-search {
+  overflow: hidden; max-height: 0;
+  background: var(--bg-1);
+  border-bottom: 1px solid transparent;
+  transition: max-height .3s var(--ease), border-color .3s;
+  position: sticky; top: 72px; z-index: 198;
+}
+.nav-search.open { max-height: 68px; border-color: var(--border); }
+.nav-search__inner {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 52px;
+}
+.nav-search__inner > svg { color: var(--t3); flex-shrink: 0; }
+.nav-search__input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: 'Poppins', sans-serif; font-size: .95rem; font-weight: 300;
+  color: var(--t1); letter-spacing: .02em;
+}
+.nav-search__input::placeholder { color: var(--t3); }
+.nav-search__close {
+  background: none; border: none; cursor: pointer;
+  color: var(--t3); font-size: 1rem; padding: 4px 8px; transition: color .2s;
+}
+.nav-search__close:hover { color: var(--t1); }
+
+/* ── Product Card — RGJ style: name + price always visible */
+.p-card--min .p-hover { display: none; }
+.p-card--min { background: var(--bg-2); }
+.p-card__overlay-cta {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.42);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s; pointer-events: none;
+}
+.p-card__overlay-cta span {
+  font-family: 'Poppins', sans-serif;
+  font-size: .65rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; border: 1px solid rgba(255,255,255,.55);
+  padding: 8px 18px; border-radius: 2px;
+}
+.p-card--min:hover .p-card__overlay-cta { opacity: 1; }
+.p-card__info {
+  padding: 9px 10px 11px;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 6px;
+}
+.p-card__cat-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: .66rem; font-weight: 400; letter-spacing: .04em;
+  color: var(--t3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.p-card__price-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: .86rem; font-weight: 600; color: var(--gold); white-space: nowrap; flex-shrink: 0;
+}
+
+/* Search no-results state */
+.search-empty {
+  grid-column: 1 / -1; text-align: center;
+  padding: 80px 20px; color: var(--t3);
+  font-family: 'Poppins', sans-serif; font-size: .9rem;
+}
+
+/* Responsive — new nav elements */
+@media (max-width: 768px) {
+  .nav { grid-template-columns: auto auto; }
+  .nav-list { display: none; position: fixed; top: 62px; } /* keep existing mobile behaviour */
+  .nav-list.open { display: flex; }
+  .nav-search { top: 62px; }
+  .nav-search__inner { padding: 14px 22px; }
+  .nav-toggle { display: flex; }
+}
+
 /* ── Jewelry Showcase (index.html) ─────────────────────── */
 .jewelry-showcase { padding: 80px 0; }
 .showcase-grid {
