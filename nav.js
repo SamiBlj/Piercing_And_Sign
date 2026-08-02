@@ -81,4 +81,23 @@
       filterBySearch(q);
     }
   }
+
+  /* Admin: custom announcement bar */
+  try {
+    const disc = JSON.parse(localStorage.getItem('ps_discount') || 'null');
+    if (disc && disc.active && disc.announce) {
+      const bar = document.querySelector('.announce-bar');
+      if (bar) bar.innerHTML = disc.announce;
+    }
+  } catch(e) {}
+
+  /* Admin: custom hero image (for pages that don't apply it in their own script) */
+  try {
+    const heroes = JSON.parse(localStorage.getItem('ps_heroImages') || '{}');
+    const page = location.pathname.replace(/.*\//, '').replace('.html', '') || 'index';
+    if (page !== 'jewelry' && heroes[page]) {
+      const bg = document.querySelector('.page-hero__bg');
+      if (bg) bg.style.backgroundImage = `url('${heroes[page]}')`;
+    }
+  } catch(e) {}
 })();

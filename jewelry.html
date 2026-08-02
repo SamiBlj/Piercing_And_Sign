@@ -283,8 +283,44 @@ for (const g of GROUPS) {
   }
 }
 
+/* ── Admin overrides ──────────────────── */
+(function applyAdminOverrides() {
+  try {
+    const ov   = JSON.parse(localStorage.getItem('ps_overrides')   || '{}');
+    const newP = JSON.parse(localStorage.getItem('ps_newProducts') || '[]');
+    const disc = JSON.parse(localStorage.getItem('ps_discount')    || 'null');
+
+    for (let i = PRODUCTS.length - 1; i >= 0; i--) {
+      const o = ov[PRODUCTS[i].id];
+      if (!o) continue;
+      if (o.hidden) { PRODUCTS.splice(i, 1); continue; }
+      if (o.name)  PRODUCTS[i].name  = o.name;
+      if (o.price !== undefined) PRODUCTS[i].price = o.price;
+      if (o.img)   PRODUCTS[i].img   = o.img;
+      if (o.img2)  PRODUCTS[i].img2  = o.img2;
+      if (o.sizes) PRODUCTS[i].sizes = o.sizes;
+    }
+
+    newP.filter(p => !p.hidden).forEach(p => PRODUCTS.push(p));
+
+    if (disc && disc.active && disc.percentage > 0) {
+      PRODUCTS.forEach(p => {
+        p.originalPrice = p.price;
+        p.price = Math.round(p.price * (1 - disc.percentage / 100));
+        p.discLabel = disc.label || ('-' + disc.percentage + '%');
+      });
+    }
+
+    const heroes = JSON.parse(localStorage.getItem('ps_heroImages') || '{}');
+    if (heroes.jewelry) {
+      const bg = document.querySelector('.page-hero__bg');
+      if (bg) bg.style.backgroundImage = `url('${heroes.jewelry}')`;
+    }
+  } catch(e) {}
+})();
+
 /* ── State ────────────────────────────── */
-let openId=null, selColor='Doré', selSize=null, openImgBase=null, searchQuery='';
+let openId=null, selColor='Doré', selSize=null, openImgBase=null, openProduct=null, searchQuery='';
 
 /* ── Search filter (called by nav.js) ── */
 function filterBySearch(q) {
@@ -315,7 +351,11 @@ function renderProducts(filter) {
       </div>
       <div class="p-card__info">
         <span class="p-card__cat-label">${CAT_LABEL[p.cat]}</span>
-        <span class="p-card__price-tag">${p.price}&thinsp;€</span>
+        <span class="p-card__price-tag">
+          ${p.originalPrice ? `<s style="font-size:.8em;color:var(--t3);margin-right:3px">${p.originalPrice}&thinsp;€</s>` : ''}
+          ${p.price}&thinsp;€
+          ${p.discLabel ? `<span style="font-size:.7em;background:var(--red);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px">${p.discLabel}</span>` : ''}
+        </span>
       </div>
     </div>
   `).join('');
@@ -324,7 +364,7 @@ function renderProducts(filter) {
 /* ── Modal ────────────────────────────── */
 function openModal(id) {
   const p=PRODUCTS.find(x=>x.id===id); if(!p) return;
-  openId=id; selColor='Doré'; selSize=null; openImgBase=p.img;
+  openId=id; selColor='Doré'; selSize=null; openImgBase=p.img; openProduct=p;
   document.getElementById('pmImg').src=p.img;
   document.getElementById('pmName').textContent=p.name;
   document.getElementById('pmPrice').textContent=p.price+' €';
@@ -351,7 +391,7 @@ function selectColor(el,c){
   document.getElementById('colorLabel').textContent=c;
   const pmImg=document.getElementById('pmImg');
   if(c==='Argent'){
-    const altSrc=openImgBase.replace('.jpg','-2.jpg');
+    const altSrc=openProduct?.img2 || openImgBase.replace('.jpg','-2.jpg');
     const test=new Image();
     test.onload=()=>{pmImg.src=altSrc;};
     test.onerror=()=>{pmImg.src=openImgBase;};

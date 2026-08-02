@@ -254,5 +254,21 @@
 
 <script src="effects.js"></script>
 <script src="nav.js"></script>
+<script>
+/* Admin: apply custom showcase images and hero image */
+(function() {
+  try {
+    const showcase = JSON.parse(localStorage.getItem('ps_showcase') || '[]');
+    const imgs = document.querySelectorAll('.showcase-grid .showcase-item img');
+    imgs.forEach((img, i) => { if (showcase[i]) img.src = showcase[i]; });
+
+    const heroes = JSON.parse(localStorage.getItem('ps_heroImages') || '{}');
+    if (heroes.index) {
+      const bg = document.querySelector('.page-hero__bg');
+      if (bg) bg.style.backgroundImage = `url('${heroes.index}')`;
+    }
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
