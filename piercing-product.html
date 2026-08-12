@@ -42,10 +42,13 @@
       line-height:1.75; margin-bottom:18px;
     }
 
-    .product-price-row { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
+    .product-price-row { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
     .product-price {
       font-family:'Oswald',sans-serif; font-size:2.4em;
       color:var(--gold); letter-spacing:1px;
+    }
+    .product-price-ht {
+      font-size:0.78em; color:var(--t3); letter-spacing:.3px;
     }
     .product-ref {
       font-size:0.62em; letter-spacing:2px; text-transform:uppercase;
@@ -93,27 +96,50 @@
     .color-circle.grey { background:linear-gradient(135deg,#d8d8d8,#909090); }
     .color-circle.gold { background:linear-gradient(135deg,#f0cc6a,#c9a135); }
 
+    /* ── Filetage badge on image ── */
+    .filetage-badge {
+      position:absolute; top:14px; right:14px;
+      width:68px; height:68px; border-radius:50%;
+      background:rgba(12,12,12,.88);
+      border:1px solid var(--border2);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      text-align:center; gap:3px;
+      backdrop-filter:blur(4px);
+    }
+    .filetage-badge svg { width:22px; height:22px; stroke:var(--gold); fill:none; stroke-width:1.4; }
+    .filetage-badge span {
+      font-size:7px; letter-spacing:.8px; text-transform:uppercase;
+      color:var(--t2); line-height:1.35;
+    }
+
     /* ── Stock + Qty ── */
-    .stock-qty-row { display:flex; align-items:center; gap:18px; margin-bottom:20px; flex-wrap:wrap; }
+    .stock-qty-row { display:flex; align-items:flex-start; gap:24px; margin-bottom:20px; flex-wrap:wrap; }
     .stock-badge {
       display:inline-flex; align-items:center; gap:6px;
       background:rgba(34,197,94,.12); color:#22c55e;
       border:1px solid rgba(34,197,94,.3); border-radius:4px;
       padding:6px 12px; font-size:11px; letter-spacing:1.5px;
-      text-transform:uppercase; font-weight:600;
+      text-transform:uppercase; font-weight:600; flex-shrink:0;
+      margin-top:18px;
     }
     .stock-badge svg { width:12px; height:12px; stroke:#22c55e; fill:none; stroke-width:2.5; }
 
+    .qty-section { display:flex; flex-direction:column; gap:6px; }
+    .qty-label {
+      font-size:0.6em; letter-spacing:2.5px; text-transform:uppercase;
+      color:var(--t3); font-weight:600;
+    }
     .qty-wrap { display:flex; align-items:center; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
     .qty-btn {
-      width:34px; height:34px; background:var(--bg-3); border:none;
+      width:36px; height:36px; background:var(--bg-3); border:none;
       color:var(--t1); font-size:18px; line-height:1; cursor:pointer;
       transition:background .15s; display:flex; align-items:center; justify-content:center;
     }
     .qty-btn:hover { background:var(--bg-4,#333); }
     .qty-val {
-      min-width:42px; text-align:center; font-size:14px;
-      height:34px; display:flex; align-items:center; justify-content:center;
+      min-width:46px; text-align:center; font-size:14px;
+      height:36px; display:flex; align-items:center; justify-content:center;
       border-left:1px solid var(--border); border-right:1px solid var(--border);
     }
 
@@ -149,10 +175,10 @@
       .product-info { padding:28px 24px 32px; }
       .product-name { font-size:1.5em; }
       .product-page { padding:80px 0 60px; }
-      .radio-grid { grid-template-columns:1fr; }
     }
     @media(max-width:480px) {
       .product-info { padding:22px 18px 28px; }
+      .radio-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -304,6 +330,10 @@ function init() {
     <div class="product-layout">
       <div class="product-img-wrap">
         <img src="${product.img}" alt="${product.name}" id="productImg">
+        <div class="filetage-badge">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span>Titane<br>ASTM F136</span>
+        </div>
       </div>
       <div class="product-info">
         <a href="piercings.html" class="product-back">← Retour aux piercings</a>
@@ -313,6 +343,7 @@ function init() {
 
         <div class="product-price-row">
           <span class="product-price">${product.price}&nbsp;€</span>
+          <span class="product-price-ht">(= ${(product.price / 1.2).toFixed(2).replace('.',',')} € HT)</span>
         </div>
         <div class="product-ref">RÉFÉRENCE : ${ref}</div>
 
@@ -346,10 +377,13 @@ function init() {
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
             En stock
           </div>
-          <div class="qty-wrap">
-            <button class="qty-btn" id="qtyMinus">−</button>
-            <span class="qty-val" id="qtyDisplay">1</span>
-            <button class="qty-btn" id="qtyPlus">+</button>
+          <div class="qty-section">
+            <span class="qty-label">Quantité</span>
+            <div class="qty-wrap">
+              <button class="qty-btn" id="qtyMinus">−</button>
+              <span class="qty-val" id="qtyDisplay">1</span>
+              <button class="qty-btn" id="qtyPlus">+</button>
+            </div>
           </div>
         </div>
 
