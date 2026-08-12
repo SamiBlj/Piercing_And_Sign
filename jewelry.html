@@ -345,7 +345,7 @@ function renderProducts(filter) {
     return;
   }
   document.getElementById('productsGrid').innerHTML = list.map(p=>`
-    <div class="p-card p-card--min" onclick="openModal(${p.id})" role="button" tabindex="0">
+    <a class="p-card p-card--min" href="jewelry-product.html?id=${p.id}">
       <div class="p-card__img-wrap">
         <img class="p-card__img" src="${p.img}" alt="${CAT_LABEL[p.cat]}" loading="lazy">
         <div class="p-card__overlay-cta"><span>Voir les options</span></div>
@@ -358,7 +358,7 @@ function renderProducts(filter) {
           ${p.discLabel ? `<span style="font-size:.7em;background:var(--red);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px">${p.discLabel}</span>` : ''}
         </span>
       </div>
-    </div>
+    </a>
   `).join('');
 }
 
