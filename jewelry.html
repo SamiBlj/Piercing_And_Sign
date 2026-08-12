@@ -73,24 +73,23 @@
 <!-- CATALOGUE -->
 <section class="section section--dark">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Collection exclusive</span>
-      <h2>Notre Boutique en Ligne</h2>
-      <p>Chaque pièce est en Titane ASTM F136 — le standard des implants médicaux. Disponible en finition Dorée (PVD) ou Argentée. Cliquez sur un bijou pour choisir votre taille et couleur.</p>
-      <div class="rule"></div>
+    <!-- Category grid view -->
+    <div id="catGridView">
+      <div class="cat-grid-header reveal">
+        <span class="cat-grid-eyebrow">— NOS BIJOUX PIERCINGS</span>
+        <p class="cat-grid-sub">Cliquez sur une catégorie pour découvrir nos sélections en titane ASTM 136.</p>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
     </div>
 
-    <!-- Category tabs -->
-    <div class="cat-tabs" role="tablist" id="catTabs">
-      <button class="cat-tab active" data-filter="all">Tous</button>
-      <button class="cat-tab" data-filter="clicker">Clickers</button>
-      <button class="cat-tab" data-filter="labret">Labrets</button>
-      <button class="cat-tab" data-filter="top">Tops</button>
-      <button class="cat-tab" data-filter="industriel">Industriels</button>
-      <button class="cat-tab" data-filter="nombril">Nombril</button>
+    <!-- Products view (hidden until category chosen) -->
+    <div id="catProductsView" style="display:none">
+      <div class="cat-products-header">
+        <button class="cat-back-btn" id="catBackBtn">← Toutes les catégories</button>
+        <h2 class="cat-products-title" id="catProductsTitle"></h2>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
     </div>
-
-    <div class="products-grid" id="productsGrid"></div>
   </div>
 </section>
 
@@ -325,8 +324,10 @@ let openId=null, selColor='Doré', selSize=null, openImgBase=null, openProduct=n
 /* ── Search filter (called by nav.js) ── */
 function filterBySearch(q) {
   searchQuery = q.toLowerCase().trim();
-  const activeTab = document.querySelector('.cat-tab.active');
-  renderProducts(activeTab ? activeTab.dataset.filter : 'all');
+  if (searchQuery && document.getElementById('catGridView').style.display !== 'none') {
+    showCategory('all', 'Résultats de recherche');
+  }
+  renderProducts('all');
 }
 
 /* ── Render products ──────────────────── */
@@ -424,18 +425,53 @@ function showToast(msg){
   setTimeout(()=>{t.classList.add('toast--out');setTimeout(()=>t.remove(),400);},2800);
 }
 
+/* ── Category config ──────────────────── */
+const CATEGORIES = [
+  { key:'clicker',    label:'Clicker',    img:'pictures/jewlery%20pictures/DSC_0013.jpg' },
+  { key:'labret',     label:'Labret',     img:'pictures/jewlery%20pictures/DSC_0300.jpg' },
+  { key:'industriel', label:'Industriel', img:'pictures/jewlery%20pictures/DSC_0150.jpg' },
+  { key:'nombril',    label:'Nombril',    img:'pictures/jewlery%20pictures/DSC_0171.jpg' },
+  { key:'top',        label:'Top Plat',   img:'pictures/jewlery%20pictures/DSC_0463.jpg' },
+];
+
+/* ── Render category grid ─────────────── */
+function renderCatGrid() {
+  document.getElementById('catGrid').innerHTML = CATEGORIES.map(c => `
+    <div class="cat-card" onclick="showCategory('${c.key}','${c.label}')">
+      <div class="cat-card__img-wrap">
+        <img src="${c.img}" alt="${c.label}" loading="lazy">
+      </div>
+      <div class="cat-card__info">
+        <span class="cat-card__eyebrow">BIJOUX</span>
+        <span class="cat-card__name">${c.label.toUpperCase()}</span>
+        <span class="cat-card__sub">bijoux en titane ASTM 136</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── Show category → products view ───── */
+function showCategory(filter, label) {
+  document.getElementById('catGridView').style.display = 'none';
+  document.getElementById('catProductsView').style.display = '';
+  document.getElementById('catProductsTitle').textContent = label;
+  renderProducts(filter);
+  window.scrollTo({ top: document.getElementById('catProductsView').offsetTop - 80, behavior:'smooth' });
+}
+
+function showCatGrid() {
+  document.getElementById('catProductsView').style.display = 'none';
+  document.getElementById('catGridView').style.display = '';
+  document.getElementById('productsGrid').innerHTML = '';
+  window.scrollTo({ top: document.getElementById('catGridView').offsetTop - 80, behavior:'smooth' });
+}
+
 /* ── Init ─────────────────────────────── */
 document.addEventListener('DOMContentLoaded',()=>{
-  renderProducts('all');
+  renderCatGrid();
   updateCartUI();
 
-  document.querySelectorAll('.cat-tab').forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-      renderProducts(tab.dataset.filter);
-    });
-  });
+  document.getElementById('catBackBtn').addEventListener('click', showCatGrid);
 
   document.getElementById('pmClose').addEventListener('click',closeModal);
   document.getElementById('pmBackdrop').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
@@ -443,7 +479,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.color-swatch').forEach(sw=>sw.addEventListener('click',()=>selectColor(sw,sw.dataset.color)));
   document.getElementById('pmAddBtn').addEventListener('click',addToCartFromModal);
 
-  /* nav behaviour handled by nav.js */
+  /* handle ?q= search from nav */
+  const q = new URLSearchParams(location.search).get('q');
+  if (q) {
+    showCategory('all', 'Résultats');
+    filterBySearch(q);
+  }
 });
 </script>
 </body>
