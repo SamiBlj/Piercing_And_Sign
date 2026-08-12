@@ -7,170 +7,152 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .product-page {
-      min-height: 80vh;
-      padding: 100px 0 80px;
-      background: var(--bg);
-    }
+    .product-page { min-height:80vh; padding:100px 0 80px; background:var(--bg); }
+
     .product-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      max-width: 1060px;
-      margin: 0 auto;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      position: relative;
+      display:grid; grid-template-columns:1fr 1fr; gap:0;
+      max-width:1060px; margin:0 auto;
+      background:var(--bg-2); border:1px solid var(--border);
     }
-    .product-layout::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--red), var(--gold));
-    }
+
+    /* ── Image column ── */
     .product-img-wrap {
-      position: relative;
-      overflow: hidden;
-      background: var(--bg-3);
-      aspect-ratio: 1/1;
+      position:relative; overflow:hidden;
+      background:var(--bg-3); aspect-ratio:1/1;
     }
-    .product-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .6s var(--ease);
-    }
-    .product-img-wrap:hover img { transform: scale(1.04); }
+    .product-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
 
-    .product-info {
-      padding: 48px 44px 44px;
-      display: flex;
-      flex-direction: column;
-    }
+    /* ── Info column ── */
+    .product-info { padding:40px 44px 40px; display:flex; flex-direction:column; }
+
     .product-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.68em;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--t2);
-      margin-bottom: 32px;
-      transition: color .2s;
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:0.68em; letter-spacing:2px; text-transform:uppercase;
+      color:var(--t2); margin-bottom:24px; transition:color .2s;
     }
-    .product-back:hover { color: var(--t1); }
-    .product-eyebrow {
-      font-size: 0.6em;
-      letter-spacing: 3px;
-      color: var(--gold);
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+    .product-back:hover { color:var(--t1); }
+
     .product-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2em;
-      letter-spacing: 3px;
-      color: var(--t1);
-      margin-bottom: 8px;
-      line-height: 1.15;
+      font-family:'Oswald',sans-serif; font-size:1.85em;
+      letter-spacing:2px; color:var(--t1); line-height:1.15;
+      text-transform:uppercase; margin-bottom:10px;
     }
-    .product-material {
-      font-size: 0.72em;
-      color: var(--t2);
-      letter-spacing: .5px;
-      line-height: 1.8;
-      margin-bottom: 20px;
+    .product-desc {
+      font-size:0.72em; color:var(--t2); letter-spacing:.4px;
+      line-height:1.75; margin-bottom:18px;
     }
+
+    .product-price-row { display:flex; align-items:baseline; gap:10px; margin-bottom:6px; }
     .product-price {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2.2em;
-      color: var(--gold);
-      letter-spacing: 1px;
-      margin-bottom: 28px;
-      text-shadow: 0 0 20px var(--gold-glow);
+      font-family:'Oswald',sans-serif; font-size:2.4em;
+      color:var(--gold); letter-spacing:1px;
     }
-    .product-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 0 24px;
+    .product-ref {
+      font-size:0.62em; letter-spacing:2px; text-transform:uppercase;
+      color:var(--t3); margin-bottom:22px;
     }
-    .product-label {
-      font-size: 0.62em;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--t3);
-      font-weight: 600;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .product-section { margin-bottom: 24px; }
-    .product-swatches {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .product-sizes {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .product-add-btn {
-      margin-top: auto;
-      padding-top: 28px;
-    }
-    .product-add-btn button {
-      width: 100%;
-      background: var(--red);
-      color: #fff;
-      border: none;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.95em;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 16px 28px;
-      cursor: pointer;
-      transition: background .2s, transform .1s;
-    }
-    .product-add-btn button:hover { background: var(--red-hover); transform: translateY(-1px); }
-    .product-add-btn button:active { transform: translateY(0); }
 
-    .product-nav-btns {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
+    .product-divider { height:1px; background:var(--border); margin:0 0 22px; }
+
+    /* ── Section ── */
+    .product-section { margin-bottom:22px; }
+    .section-lbl {
+      font-size:0.6em; letter-spacing:2.5px; text-transform:uppercase;
+      color:var(--t3); font-weight:600; margin-bottom:10px; display:block;
     }
+
+    /* ── Radio options ── */
+    .radio-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .radio-opt {
+      display:flex; align-items:center; gap:9px;
+      padding:9px 12px; border:1px solid var(--border); border-radius:4px;
+      cursor:pointer; transition:border-color .15s;
+    }
+    .radio-opt:hover { border-color:var(--t3); }
+    .radio-opt input { position:absolute; opacity:0; width:0; height:0; }
+    .radio-opt:has(input:checked) { border-color:var(--t1); }
+
+    .radio-circle {
+      width:16px; height:16px; border-radius:50%;
+      border:2px solid var(--t3); flex-shrink:0; position:relative;
+      transition:border-color .15s;
+    }
+    .radio-opt:has(input:checked) .radio-circle { border-color:var(--t1); }
+    .radio-opt:has(input:checked) .radio-circle::after {
+      content:''; position:absolute; inset:3px;
+      background:var(--t1); border-radius:50%;
+    }
+    .radio-lbl { font-size:12px; color:var(--t2); line-height:1.3; }
+    .radio-opt:has(input:checked) .radio-lbl { color:var(--t1); }
+
+    /* ── Color radio ── */
+    .color-circle {
+      width:18px; height:18px; border-radius:50%; flex-shrink:0;
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .color-circle.grey { background:linear-gradient(135deg,#d8d8d8,#909090); }
+    .color-circle.gold { background:linear-gradient(135deg,#f0cc6a,#c9a135); }
+
+    /* ── Stock + Qty ── */
+    .stock-qty-row { display:flex; align-items:center; gap:18px; margin-bottom:20px; flex-wrap:wrap; }
+    .stock-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(34,197,94,.12); color:#22c55e;
+      border:1px solid rgba(34,197,94,.3); border-radius:4px;
+      padding:6px 12px; font-size:11px; letter-spacing:1.5px;
+      text-transform:uppercase; font-weight:600;
+    }
+    .stock-badge svg { width:12px; height:12px; stroke:#22c55e; fill:none; stroke-width:2.5; }
+
+    .qty-wrap { display:flex; align-items:center; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+    .qty-btn {
+      width:34px; height:34px; background:var(--bg-3); border:none;
+      color:var(--t1); font-size:18px; line-height:1; cursor:pointer;
+      transition:background .15s; display:flex; align-items:center; justify-content:center;
+    }
+    .qty-btn:hover { background:var(--bg-4,#333); }
+    .qty-val {
+      min-width:42px; text-align:center; font-size:14px;
+      height:34px; display:flex; align-items:center; justify-content:center;
+      border-left:1px solid var(--border); border-right:1px solid var(--border);
+    }
+
+    /* ── Add to cart ── */
+    .add-btn {
+      width:100%; margin-top:auto; padding-top:20px;
+    }
+    .add-btn button {
+      width:100%; background:#1a1a2e; color:#fff; border:1px solid rgba(255,255,255,.12);
+      font-family:'Oswald',sans-serif; font-size:0.88em; letter-spacing:3px;
+      text-transform:uppercase; padding:15px 24px; cursor:pointer;
+      transition:background .2s; display:flex; align-items:center;
+      justify-content:center; gap:10px; border-radius:2px;
+    }
+    .add-btn button:hover { background:#22223a; }
+    .add-btn button svg { width:18px; height:18px; stroke:#fff; fill:none; stroke-width:1.8; flex-shrink:0; }
+
+    /* ── Nav prev/next ── */
+    .product-nav-btns { display:flex; gap:10px; margin-top:16px; }
     .product-nav-btns a {
-      flex: 1;
-      text-align: center;
-      padding: 11px 16px;
-      font-size: 0.68em;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--t2);
-      transition: all .2s;
+      flex:1; text-align:center; padding:10px 14px;
+      font-size:0.68em; letter-spacing:2px; text-transform:uppercase;
+      border:1px solid var(--border); color:var(--t2); transition:all .2s;
     }
-    .product-nav-btns a:hover { border-color: var(--border3); color: var(--t1); }
+    .product-nav-btns a:hover { border-color:var(--t3); color:var(--t1); }
 
-    .product-not-found {
-      text-align: center;
-      padding: 120px 24px;
-      color: var(--t2);
-    }
+    .product-not-found { text-align:center; padding:120px 24px; color:var(--t2); }
     .product-not-found h2 { font-family:'Oswald',sans-serif; font-size:2em; margin-bottom:16px; color:var(--t1); }
 
     @media(max-width:768px) {
-      .product-layout { grid-template-columns: 1fr; margin:0 16px; }
-      .product-img-wrap { aspect-ratio: 4/3; }
-      .product-info { padding: 28px 24px 32px; }
-      .product-name { font-size: 1.5em; }
-      .product-page { padding: 80px 0 60px; }
+      .product-layout { grid-template-columns:1fr; margin:0 16px; }
+      .product-img-wrap { aspect-ratio:4/3; }
+      .product-info { padding:28px 24px 32px; }
+      .product-name { font-size:1.5em; }
+      .product-page { padding:80px 0 60px; }
+      .radio-grid { grid-template-columns:1fr; }
     }
     @media(max-width:480px) {
-      .product-info { padding: 22px 18px 28px; }
-      .product-back { margin-bottom: 20px; }
+      .product-info { padding:22px 18px 28px; }
     }
   </style>
 </head>
@@ -287,10 +269,7 @@ const PRODUCTS = PHOTOS.map((photo, i) => ({
   sizes: ['6mm','8mm','10mm','12mm']
 }));
 
-/* ── State ────────────────────────────── */
-let selColor = 'Doré';
-let selSize  = null;
-let product  = null;
+let product = null;
 
 /* ── Load product from URL ────────────── */
 function init() {
@@ -313,6 +292,14 @@ function init() {
   const prevId = product.id > 1 ? product.id - 1 : PRODUCTS.length;
   const nextId = product.id < PRODUCTS.length ? product.id + 1 : 1;
 
+  const ref = `PS-P${String(product.id).padStart(3,'0')}`;
+  const sizesHTML = product.sizes.map(s => `
+    <label class="radio-opt">
+      <input type="radio" name="size" value="${s}">
+      <span class="radio-circle"></span>
+      <span class="radio-lbl">16G (1,2 mm) — ${s}</span>
+    </label>`).join('');
+
   container.innerHTML = `
     <div class="product-layout">
       <div class="product-img-wrap">
@@ -320,30 +307,57 @@ function init() {
       </div>
       <div class="product-info">
         <a href="piercings.html" class="product-back">← Retour aux piercings</a>
-        <span class="product-eyebrow">Titane ASTM F136</span>
+
         <h1 class="product-name">${product.name}</h1>
-        <p class="product-material">Titane ASTM F136 · Hypoallergénique · Qualité implant médical<br>Réalisé en boutique à Compiègne</p>
-        <p class="product-price">${product.price}&nbsp;€</p>
+        <p class="product-desc">Bijou de piercing en titane ASTM F136<br>Hypoallergénique · Qualité implant médical · Réalisé en boutique</p>
+
+        <div class="product-price-row">
+          <span class="product-price">${product.price}&nbsp;€</span>
+        </div>
+        <div class="product-ref">RÉFÉRENCE : ${ref}</div>
+
         <div class="product-divider"></div>
 
         <div class="product-section">
-          <span class="product-label">Couleur</span>
-          <div class="product-swatches">
-            <button class="color-swatch gold active" data-color="Doré" title="Doré" id="swGold"></button>
-            <span class="swatch-name" id="colorLabel">Doré</span>
-            <button class="color-swatch silver" data-color="Argent" title="Argent" id="swSilver" style="margin-left:10px;"></button>
-          </div>
+          <span class="section-lbl">Taille</span>
+          <div class="radio-grid">${sizesHTML}</div>
         </div>
 
         <div class="product-section">
-          <span class="product-label">Taille <small style="font-size:.9em;letter-spacing:0;text-transform:none;color:var(--t3);">(sélectionnez)</small></span>
-          <div class="product-sizes" id="productSizes">
-            ${product.sizes.map(s => `<button class="size-chip" data-size="${s}">${s}</button>`).join('')}
+          <span class="section-lbl">Couleur</span>
+          <div class="radio-grid">
+            <label class="radio-opt">
+              <input type="radio" name="color" value="Argent">
+              <span class="radio-circle"></span>
+              <span class="color-circle grey"></span>
+              <span class="radio-lbl">Titane gris</span>
+            </label>
+            <label class="radio-opt">
+              <input type="radio" name="color" value="Doré" checked>
+              <span class="radio-circle"></span>
+              <span class="color-circle gold"></span>
+              <span class="radio-lbl">Titane doré</span>
+            </label>
           </div>
         </div>
 
-        <div class="product-add-btn">
-          <button id="addBtn">Ajouter au Panier</button>
+        <div class="stock-qty-row">
+          <div class="stock-badge">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            En stock
+          </div>
+          <div class="qty-wrap">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <span class="qty-val" id="qtyDisplay">1</span>
+            <button class="qty-btn" id="qtyPlus">+</button>
+          </div>
+        </div>
+
+        <div class="add-btn">
+          <button id="addBtn">
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Ajouter au panier
+          </button>
         </div>
 
         <div class="product-nav-btns">
@@ -353,42 +367,35 @@ function init() {
       </div>
     </div>`;
 
-  /* colour swatches */
-  document.getElementById('swGold').addEventListener('click', () => setColor('Doré'));
-  document.getElementById('swSilver').addEventListener('click', () => setColor('Argent'));
-
-  /* size chips */
-  document.querySelectorAll('.size-chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.size-chip').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selSize = btn.dataset.size;
-    });
+  /* qty */
+  let qty = 1;
+  document.getElementById('qtyMinus').addEventListener('click', () => {
+    if (qty > 1) { qty--; document.getElementById('qtyDisplay').textContent = qty; }
+  });
+  document.getElementById('qtyPlus').addEventListener('click', () => {
+    qty++; document.getElementById('qtyDisplay').textContent = qty;
   });
 
   /* add to cart */
   document.getElementById('addBtn').addEventListener('click', addToCart);
 
   updateCartUI();
-}
 
-function setColor(color) {
-  selColor = color;
-  document.getElementById('colorLabel').textContent = color;
-  document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
-  document.getElementById(color === 'Doré' ? 'swGold' : 'swSilver').classList.add('active');
-}
-
-function addToCart() {
-  if (!selSize) { showToast('Veuillez choisir une taille.'); return; }
-  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  const key  = `p${product.id}-${selSize}-${selColor}`;
-  const ex   = cart.find(c => c.key === key);
-  if (ex) ex.qty++;
-  else cart.push({ key, id: product.id, name: product.name, price: product.price, size: selSize, color: selColor, img: product.img, qty: 1 });
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartUI();
-  showToast(`✓ ${product.name} · ${selSize} · ${selColor} ajouté`);
+  function addToCart() {
+    const sizeEl  = document.querySelector('input[name="size"]:checked');
+    const colorEl = document.querySelector('input[name="color"]:checked');
+    if (!sizeEl) { showToast('Veuillez choisir une taille.'); return; }
+    const selSize  = sizeEl.value;
+    const selColor = colorEl ? colorEl.value : 'Doré';
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const key  = `p${product.id}-${selSize}-${selColor}`;
+    const ex   = cart.find(c => c.key === key);
+    if (ex) ex.qty += qty;
+    else cart.push({ key, id: product.id, name: product.name, price: product.price, size: selSize, color: selColor, img: product.img, qty });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartUI();
+    showToast(`✓ ${product.name} · ${selSize} · ${selColor}${qty > 1 ? ' × ' + qty : ''}`);
+  }
 }
 
 function updateCartUI() {
