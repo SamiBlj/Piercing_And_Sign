@@ -220,7 +220,7 @@
 /* ── Product data — ALL shop photos ─────────────────────── */
 const GROUPS = [
   {
-    cat:'clicker', sizes:['6mm','8mm','10mm','12mm'], p0:24, p1:48,
+    cat:'clicker', sizes:['6mm','7mm','8mm','9mm','10mm','11mm','12mm'], p0:24, p1:48,
     nums:[13,14,18,19,20,21,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,
      45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,
      74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,
@@ -233,14 +233,14 @@ const GROUPS = [
      281,282,283,284,286,287,288,290,295,296,297,298,299]
   },
   {
-    cat:'nombril', sizes:['6mm','8mm','10mm'], p0:20, p1:32,
+    cat:'nombril', sizes:['6mm','8mm','10mm','12mm'], p0:20, p1:32,
     nums:[171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,
      191,192,193,194,195,196,197,198,199,200,
      201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,
      221,222,223,224,225,226,227,228,229,230]
   },
   {
-    cat:'labret', sizes:['6mm','8mm','10mm'], p0:18, p1:30,
+    cat:'labret', sizes:['4mm','5mm','6mm','7mm','8mm','10mm','12mm'], p0:18, p1:30,
     nums:[300,301,302,303,304,305,306,307,308,309,311,312,313,314,315,316,317,318,319,320,
      321,322,323,324,325,326,327,328,329,331,333,335,336,337,338,339,
      341,342,345,346,347,348,349,350,351,352,353,354,355,357,359,360,362,363,364,365,
@@ -348,14 +348,14 @@ function renderProducts(filter) {
     <a class="p-card p-card--min" href="jewelry-product.html?id=${p.id}">
       <div class="p-card__img-wrap">
         <img class="p-card__img" src="${p.img}" alt="${CAT_LABEL[p.cat]}" loading="lazy">
-        <div class="p-card__overlay-cta"><span>Voir les options</span></div>
+        <div class="p-card__logo-mini"><span>Piercing &amp; Sign</span></div>
       </div>
-      <div class="p-card__info">
-        <span class="p-card__cat-label">${CAT_LABEL[p.cat]}</span>
-        <span class="p-card__price-tag">
-          ${p.originalPrice ? `<s style="font-size:.8em;color:var(--t3);margin-right:3px">${p.originalPrice}&thinsp;€</s>` : ''}
+      <div class="p-card__footer">
+        <span class="p-card__footer-name">${p.name}</span>
+        <span class="p-card__footer-price">
+          ${p.originalPrice ? '<s style="font-size:.8em;color:#aaa;margin-right:3px">'+p.originalPrice+'&thinsp;€</s>' : ''}
           ${p.price}&thinsp;€
-          ${p.discLabel ? `<span style="font-size:.7em;background:var(--red);color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px">${p.discLabel}</span>` : ''}
+          ${p.discLabel ? '<span style="font-size:.7em;background:#c00;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px">'+p.discLabel+'</span>' : ''}
         </span>
       </div>
     </a>
@@ -441,11 +441,14 @@ const CATEGORIES = [
 function renderCatGrid() {
   document.getElementById('catGrid').innerHTML = CATEGORIES.map((c, i) =>
     '<div class="cat-card" data-idx="' + i + '">' +
-    '<div class="cat-card__img-wrap"><img src="' + c.img + '" alt="' + c.label + '" loading="lazy"></div>' +
+    '<div class="cat-card__img-wrap">' +
+    '<img src="' + c.img + '" alt="' + c.label + '" loading="lazy">' +
+    '<div class="cat-card__logo-badge"><span>Piercing<br>&amp; Sign</span></div>' +
+    '</div>' +
     '<div class="cat-card__info">' +
-    '<span class="cat-card__eyebrow">BIJOUX</span>' +
+    '<span class="cat-card__eyebrow">BIJOU</span>' +
     '<span class="cat-card__name">' + c.label.toUpperCase() + '</span>' +
-    '<span class="cat-card__sub">bijoux en titane ASTM 136</span>' +
+    '<span class="cat-card__sub">bijoux de piercing en titane ASTM F136</span>' +
     '</div></div>'
   ).join('');
 
