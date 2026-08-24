@@ -1395,7 +1395,8 @@ body > * { position:relative; z-index:1; }
   .cat-tabs::-webkit-scrollbar { display:none; }
   .cat-tab { flex-shrink:0; white-space:nowrap; padding:13px 24px; font-size:0.76em; min-height:46px; }
   .cat-grid { grid-template-columns: repeat(2, 1fr); gap:10px; }
-  .cat-card__img-wrap { height:150px; }
+  /* Switch from fixed height to square aspect-ratio so cards stay proportional */
+  .cat-card__img-wrap { height:auto; aspect-ratio:1/1; }
   .cat-grid-header { margin-bottom:28px; }
 }
 
@@ -1445,6 +1446,7 @@ body > * { position:relative; z-index:1; }
   overflow:hidden;
   background:#fff;
   position:relative;
+  aspect-ratio:unset;
 }
 .cat-card__img-wrap img {
   width:100%; height:100%;
@@ -1871,20 +1873,24 @@ a.p-card, a.p-card:visited, a.p-card:hover, a.p-card:focus, a.p-card:active {
   .announce-bar::-webkit-scrollbar { display:none; }
 }
 
-/* Category cards — tighten image height on small phones */
+/* Category cards — compact square on phones, hide subtitle so name isn't buried */
 @media(max-width:480px) {
-  .cat-card__img-wrap { height:130px; }
-  .cat-card__info { padding:10px 8px 12px; gap:2px; }
-  .cat-card__name { font-size:0.88em; }
-  .cat-card__sub { font-size:0.58em; }
   .cat-grid { gap:8px; }
+  .cat-card__img-wrap { height:auto; aspect-ratio:1/1; }
+  .cat-card__eyebrow { display:none; }
+  .cat-card__sub { display:none; }
+  .cat-card__info { padding:8px 6px 10px; }
+  .cat-card__name { font-size:0.82em; letter-spacing:.04em; }
+  .cat-card__logo-badge { width:26px; height:26px; top:5px; left:5px; }
+  .cat-card__logo-badge span { font-size:3px; }
 }
 
-/* Product grid cards — bigger gap so footer fits, smaller footer text */
+/* Product grid cards — square image, compact footer, no elongation */
 @media(max-width:768px) {
   .products-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .p-card--min .p-card__img-wrap { aspect-ratio:1/1; }
   .p-card__footer { padding:8px 10px 10px; }
-  .p-card__footer-name { font-size:0.62em; }
+  .p-card__footer-name { font-size:0.62em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .p-card__footer-price { font-size:0.9em; }
   .p-card__logo-mini { width:26px; height:26px; }
   .p-card__logo-mini span { font-size:3.5px; }
