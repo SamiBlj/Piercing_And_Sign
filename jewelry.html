@@ -427,19 +427,23 @@ function showToast(msg){
 
 /* ── Category config ──────────────────── */
 const CATEGORIES = [
-  { key:'clicker',    label:'Clicker',    img:'pictures/jewlery%20pictures/DSC_0013.jpg' },
-  { key:'labret',     label:'Labret',     img:'pictures/jewlery%20pictures/DSC_0300.jpg' },
-  { key:'industriel', label:'Industriel', img:'pictures/jewlery%20pictures/DSC_0150.jpg' },
-  { key:'nombril',    label:'Nombril',    img:'pictures/jewlery%20pictures/DSC_0171.jpg' },
-  { key:'top',        label:'Top Plat',   img:'pictures/jewlery%20pictures/DSC_0463.jpg' },
+  { key:'labret',     label:'Labret',      img:'pictures/jewlery%20pictures/DSC_0300.jpg' },
+  { key:'clicker',    label:'Clicker',     img:'pictures/jewlery%20pictures/DSC_0013.jpg' },
+  { key:'industriel', label:'Industriel',  img:'pictures/jewlery%20pictures/DSC_0150.jpg' },
+  { key:'nombril',    label:'Nombril',     img:'pictures/jewlery%20pictures/DSC_0171.jpg' },
+  { key:'sein',       label:'Sein',        img:'pictures/jewlery%20pictures/DSC_0060.jpg',  soon:true },
+  { key:'langue',     label:'Langue',      img:'pictures/jewlery%20pictures/DSC_0100.jpg',  soon:true },
+  { key:'nez',        label:'Nez',         img:'pictures/jewlery%20pictures/DSC_0022.jpg',  soon:true },
+  { key:'top',        label:'Autre Bijou', img:'pictures/jewlery%20pictures/DSC_0463.jpg' },
 ];
 
 /* ── Render category grid ─────────────── */
 function renderCatGrid() {
   document.getElementById('catGrid').innerHTML = CATEGORIES.map(c => `
-    <div class="cat-card" onclick="showCategory('${c.key}','${c.label}')">
+    <div class="cat-card${c.soon ? ' cat-card--soon' : ''}" onclick="${c.soon ? "showSoon('"+c.label+"')" : "showCategory('"+c.key+"','"+c.label+"')"}">
       <div class="cat-card__img-wrap">
         <img src="${c.img}" alt="${c.label}" loading="lazy">
+        ${c.soon ? '<div class="cat-card__soon-overlay"><span>Bientôt</span></div>' : ''}
       </div>
       <div class="cat-card__info">
         <span class="cat-card__eyebrow">BIJOUX</span>
@@ -448,6 +452,10 @@ function renderCatGrid() {
       </div>
     </div>
   `).join('');
+}
+
+function showSoon(label) {
+  showToast(label + ' — disponible prochainement');
 }
 
 /* ── Show category → products view ───── */

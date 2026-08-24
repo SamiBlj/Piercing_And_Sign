@@ -1424,6 +1424,19 @@ body > * { position:relative; z-index:1; }
   transition:transform .4s;
 }
 .cat-card:hover .cat-card__img-wrap img { transform:scale(1.06); }
+.cat-card--soon { opacity:.72; }
+.cat-card__soon-overlay {
+  position:absolute; inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center;
+}
+.cat-card__soon-overlay span {
+  font-family:'Oswald',sans-serif; font-size:0.85em;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--gold-border);
+  padding:5px 14px; border-radius:3px;
+  background:rgba(0,0,0,.5);
+}
 .cat-card__info {
   display:flex;
   flex-direction:column;
