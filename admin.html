@@ -298,6 +298,22 @@
       </div>
 
       <div class="settings-card">
+        <h3>Commandes reçues</h3>
+        <p class="settings-desc">Exportez les commandes passées par les clients (contenu du panier enregistré) en fichier Excel/CSV, ouvrable directement dans Excel.</p>
+        <div class="btns-row">
+          <button class="btn-secondary" onclick="exportOrders()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger les commandes (.csv)
+          </button>
+          <button class="btn-secondary" onclick="clearOrders()" style="color:#e05;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+            Vider les commandes
+          </button>
+        </div>
+        <div id="ordersPreview" style="margin-top:14px"></div>
+      </div>
+
+      <div class="settings-card">
         <h3>Sauvegarde des données</h3>
         <p class="settings-desc">Exportez tous vos réglages (produits modifiés, promotions, images) dans un fichier JSON pour les sauvegarder ou les transférer.</p>
         <div class="btns-row">
@@ -846,6 +862,44 @@ async function changePassword() {
   ls.set(K.hash, await sha256(np));
   ['curPwd','newPwdChange','confPwdChange'].forEach(id => document.getElementById(id).value = '');
   toast('Mot de passe mis à jour.', 'ok');
+}
+
+function exportOrders() {
+  const orders = JSON.parse(localStorage.getItem('cart') || '[]');
+  if (!orders.length) { toast('Aucune commande en attente.', 'warn'); return; }
+  const rows = [['Produit','Taille','Couleur','Prix unitaire','Quantité','Total']];
+  orders.forEach(o => {
+    rows.push([
+      o.name || '',
+      o.size || '',
+      o.color || '',
+      (o.price || 0) + ' EUR',
+      o.qty || 1,
+      ((o.price || 0) * (o.qty || 1)) + ' EUR'
+    ]);
+  });
+  const total = orders.reduce((s, o) => s + (o.price || 0) * (o.qty || 1), 0);
+  rows.push(['', '', '', '', 'TOTAL', total + ' EUR']);
+  const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g,'""') + '"').join(',')).join('\r\n');
+  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'commandes_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  toast('Commandes exportées.', 'ok');
+
+  // preview in page
+  const preview = document.getElementById('ordersPreview');
+  if (preview) {
+    preview.innerHTML = `<p style="font-size:.78em;color:var(--t3);margin:0">${orders.length} article(s) · Total : <strong style="color:var(--t1)">${total} €</strong></p>`;
+  }
+}
+
+function clearOrders() {
+  if (!confirm('Vider le panier / les commandes en attente ?')) return;
+  localStorage.removeItem('cart');
+  document.getElementById('ordersPreview').innerHTML = '<p style="font-size:.78em;color:var(--t3);margin:0">Panier vidé.</p>';
+  toast('Commandes supprimées.', 'ok');
 }
 
 function exportData() {
