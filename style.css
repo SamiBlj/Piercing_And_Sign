@@ -1848,3 +1848,80 @@ a.p-card, a.p-card:visited, a.p-card:hover, a.p-card:focus, a.p-card:active {
   .showcase-grid { grid-template-columns: repeat(2, 1fr); }
   .jewelry-showcase { padding: 56px 0; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE POLISH — phone-specific fixes
+   ═══════════════════════════════════════════════════════════ */
+
+/* Hero title: "Bijoux en Titane ASTM F136" is long — shrink on phone */
+@media(max-width:480px) {
+  .hero__title { font-size: clamp(1.6em, 8vw, 2.1em); letter-spacing:1.5px; }
+}
+@media(max-width:360px) {
+  .hero__title { font-size:1.45em; letter-spacing:1px; }
+}
+
+/* Announce bar — allow horizontal scroll instead of wrapping */
+@media(max-width:480px) {
+  .announce-bar {
+    white-space:nowrap; overflow-x:auto;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    text-align:left; font-size:.62rem; padding:9px 16px;
+  }
+  .announce-bar::-webkit-scrollbar { display:none; }
+}
+
+/* Category cards — tighten image height on small phones */
+@media(max-width:480px) {
+  .cat-card__img-wrap { height:130px; }
+  .cat-card__info { padding:10px 8px 12px; gap:2px; }
+  .cat-card__name { font-size:0.88em; }
+  .cat-card__sub { font-size:0.58em; }
+  .cat-grid { gap:8px; }
+}
+
+/* Product grid cards — bigger gap so footer fits, smaller footer text */
+@media(max-width:768px) {
+  .products-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .p-card__footer { padding:8px 10px 10px; }
+  .p-card__footer-name { font-size:0.62em; }
+  .p-card__footer-price { font-size:0.9em; }
+  .p-card__logo-mini { width:26px; height:26px; }
+  .p-card__logo-mini span { font-size:3.5px; }
+}
+@media(max-width:380px) {
+  .products-grid { gap:6px; }
+  .p-card__footer { padding:6px 8px 8px; }
+  .p-card__footer-name { display:none; }
+}
+
+/* Cat card logo badge — smaller on phone */
+@media(max-width:480px) {
+  .cat-card__logo-badge { width:30px; height:30px; top:6px; left:6px; }
+  .cat-card__logo-badge span { font-size:3.5px; }
+}
+
+/* Cat products header — stack on mobile */
+@media(max-width:480px) {
+  .cat-products-header { flex-direction:column; align-items:flex-start; gap:10px; margin-bottom:20px; }
+  .cat-products-title { font-size:1.1em; }
+}
+
+/* Section spacing on phone */
+@media(max-width:480px) {
+  .section--dark { padding:48px 16px; }
+  .cat-grid-header { margin-bottom:24px; }
+  .cat-grid-eyebrow { font-size:0.7em; margin-bottom:6px; }
+}
+
+/* Footer — single column tighter */
+@media(max-width:480px) {
+  .footer__grid { gap:24px; }
+  .footer__brand-name { font-size:1.2em; }
+}
+
+/* Hero action buttons — full width stack on phone */
+@media(max-width:480px) {
+  .hero__actions { flex-direction:column; gap:10px; }
+  .hero__actions .btn { width:100%; justify-content:center; text-align:center; }
+}
